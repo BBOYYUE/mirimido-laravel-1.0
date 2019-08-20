@@ -18,11 +18,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-	@media (max-width:780px){
-	.title{
-		height:1.5rem;	
-	}
-	}
         @media (min-width: 780px) { 
         .linkCard{
             margin-left:1rem;
