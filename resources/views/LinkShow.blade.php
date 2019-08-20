@@ -9,12 +9,12 @@
         <div class="col-sm-12 col-md-6 col-lg-3">
         <div class="card">
             <div class="card-body">
-                <div class='title row'>
-                <h5 class="col-5">
+		<div class= 'title row'>
+                <h5 class='col-7'>
                     {{ $link->title }}
-                </h5>
-                <a class="col-7" class='btn btn-link' href='http://{{$link->link }}'>{{$link->link }}</a>
-                </div>
+		</h5>
+                	<a  class='col-5 btn btn-link' style="width:100%" href='http://{{$link->link }}'>{{$link->link }}</a>
+		</div>
                 <hr>
                <p class="lead" onclick="showDetail(this)">{{ $link->summary }}</p>
                 <hr>
