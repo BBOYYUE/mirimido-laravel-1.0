@@ -54,17 +54,17 @@
 	 
 	@section('myUnLoginMenu')
     		<li class="nav-item"><a href="/link/" class="nav-link">Link</a></li>
-    		<li class="nav-item"><a href="/Document/" class="nav-link disabled">Doc</a></li>
+    		<!--li class="nav-item"><a href="/Document/" class="nav-link disabled">Doc</a></li>
     		<li class="nav-item"><a href="/Blog/" class="nav-link disabled">Blog</a></li>
     		<li class="nav-item"><a href="/Code/" class="nav-link disabled">Code</a></li>
-    		<li class="nav-item"><a href="/Sponsor/" class="nav-link disabled ">Sponsor</a></li>
+    		<li class="nav-item"><a href="/Sponsor/" class="nav-link disabled ">Sponsor</a></l-->
 	@endsection           
 	@section('myLoginMenu')
     		<li class="nav-item"><a href="/link/" class="nav-link">Link</a></li>
-    		<li class="nav-item"><a href="/Document/" class="nav-link disabled">Doc</a></li>
+    		<!--li class="nav-item"><a href="/Document/" class="nav-link disabled">Doc</a></li>
     		<li class="nav-item"><a href="/Blog/" class="nav-link disabled">Blog</a></li>
     		<li class="nav-item"><a href="/Code/" class="nav-link disabled">Code</a></li>
-    		<li class="nav-item"><a href="/Sponsor/" class="nav-link disabled ">Sponsor</a></li>
+    		<li class="nav-item"><a href="/Sponsor/" class="nav-link disabled ">Sponsor</a></l-->
 	@endsection           
         
             @section('content')
