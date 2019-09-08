@@ -24,6 +24,7 @@
 
 	#header{background-color:#0073aa;}
         body{background: #343a40;}
+        iframe{background: #f8fafc;}
     </style>
 </head>
 <body>
