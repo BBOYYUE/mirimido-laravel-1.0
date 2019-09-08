@@ -70,11 +70,12 @@
   })
     if($(window).width()>767){
         $('.msidebar').css('display','none');
+        $('#box').css('height',$(window).height()*.9);
     }else{
         $('.sidebar').css('display','none');
+        $('#box').css('height',$(window).height());
     }
 
-    $('#box').css('height',$(window).height()*.9);
     
     function getPost(formData,url,callback,reload=true){
         var request = new XMLHttpRequest();
