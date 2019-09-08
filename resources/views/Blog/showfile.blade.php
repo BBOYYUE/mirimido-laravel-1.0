@@ -44,7 +44,7 @@
 @endsection
 @section('msidebar')
     @component('component/navbar/msidebar')
-        @foreach ($data->data['html'] as $item)
+        @foreach ($data->data['file'] as $item)
         <li class="nav-item"><h5><a href="/showMd/gethtml?path={{$item->url}}" target="iframe">{{$item->name}}</a></h5></li>
         @endforeach
     @endcomponent
