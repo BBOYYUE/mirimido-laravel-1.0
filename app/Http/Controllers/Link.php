@@ -23,13 +23,7 @@ class Link extends Controller
                 foreach($links as $key=>$link){
                     $links[$key]->user=DB::table('users')->where('id','=',$link->user)->select('name')->first()->name;
                 }
-               return view('LinkShow')->with('links',$links);
-            case 'update':
-                return view('LinkUpdate');
-                break;
-            case 'delete':
-                return view('LinkDelete');
-                break;
+               return view('Link/show')->with('links',$links);
             case 'create':
                 return view('LinkCreate');
                 break;
