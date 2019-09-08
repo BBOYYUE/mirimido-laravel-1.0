@@ -12,11 +12,31 @@
 */
 
 Route::get('/', function () {
-    return view('/home');
+    return view('home');
+})->name('home');
+
+Route::get('/home', function () {
+	return view('home');
 });
+Route::get('index','index@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/blog/{method}', 'blog@index')->name('blog');
+Route::get('/userdir/{method}', 'blog@showUserDir')->name('userdir')->middleware('auth');
+Route::get('/userfile/{method}', 'blog@showUserFile')->name('userfile');
+Route::get('/userhtml/{method}', 'blog@showUserHtml')->name('userhtml');
+
+Route::post('/blog/createdir/{method}', 'blog@createDir')->name('blogcreate')->middleware('auth');
+Route::post('/userdir/createdir/{method}', 'blog@createDir')->name('userdircreate')->middleware('auth');
+Route::post('/userfile/createfile/{method}', 'blog@createFile')->name('userfilecreate')->middleware('auth');
+Route::post('/userhtml/createfile/{method}', 'blog@createFile')->name('userfilecreate')->middleware('auth');
+Route::post('/userhtml/updatefile/{method}', 'blog@updateFile')->name('userfileupdate')->middleware('auth');
+Route::post('/userfile/updatefile/{method}', 'blog@updateFile')->name('userfileupdate')->middleware('auth');
+
+Route::get('/showMd/{method}', 'blog@showMd')->name('showmd');
+Route::get('/showHtml/{method}', 'blog@showHtml')->name('showmd');
+
+
 Route::get('/link/{type?}', 'Link@index')->name('link');
 Route::post('/link/create', 'Link@create')->name('createlink');

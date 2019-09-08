@@ -92,7 +92,7 @@ class Link extends Controller
     public function show($id,\App\link $link)
     {
         //
-        if($id=='all') return $link->paginate(15);
+        if($id=='all') return $link->paginate(24);
     }
 
     /**

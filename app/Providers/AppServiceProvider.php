@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Schema;
-
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,7 +13,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // 
+        $this->app->singleton(format::class, function ($app) {
+            return new \App\Fomat\format;
+        });
+        $this->app->singleton(blogCore::class, function ($app) {
+            return new \App\Project\Blog\blogCore;
+        });
+        $this->app->singleton(makeFile::class, function ($app) {
+            return new \App\File\makeFile;
+        });
+
     }
 
     /**
@@ -26,6 +34,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        Schema::defaultStringLength(191);
     }
 }

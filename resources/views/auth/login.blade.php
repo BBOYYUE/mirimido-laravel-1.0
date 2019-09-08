@@ -1,5 +1,15 @@
 @extends('layouts.app')
-
+@section('header-left')
+    @component('component/navbar/header-left')
+    @endcomponent
+@endsection
+@section('header-right')
+    @component('component/navbar/header-right')
+            <li class="nav-item">
+                <a class="nav-link btn btn-link" data-toggle="modal" data-target="#headerModal">create</a>
+            </li>
+    @endcomponent
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

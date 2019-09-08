@@ -1,38 +1,47 @@
 @extends('layouts.app')
-@section('myLoginMenu')
-    <li class="nav-item"><a href="/link/create" class="nav-link">create</a></li>
+@section('head')
+<style>
+    #card{
+        padding:5px 5px 0 5px ;
+    }
+</style>
+@endsection
+@section('header-left')
+    @component('component/navbar/header-left')
+    @endcomponent
+@endsection
+@section('header-right')
+    @component('component/navbar/header-right')
+        @auth
+            <li class="nav-item">
+                <a class="nav-link btn btn-link" href="link/create">create</a>
+            </li>
+        @endauth
+    @endcomponent
+@endsection
+@section('modal')
 @endsection
 @section('content')
-<div class=".container-fluid">
-    <div class="row linkCard">
+<div class="container-fluid">
+    <div class="row">
         @foreach ($links as $link)
-        <div class="col-sm-12 col-md-6 col-lg-3">
-        <div class="card">
-            <div class="card-body">
-		<div class= 'title row'>
-                <h5 class='col-7'>
-                    {{ $link->title }}
-		</h5>
-                	<a  class='col-5 btn btn-link' style="width:100%" href='http://{{$link->link }}'>{{$link->link }}</a>
-		</div>
-                <hr>
-               <p class="lead" onclick="showDetail(this)">{{ $link->summary }}</p>
-                <hr>
-                  {{ $link->user }} 
-                    <small>{{ $link->created_at }}</small>
-            </div>    
+        <div class='col-md-2 col-sm-12' id="card">
+        <div class="card bg-wirte text-dark" >
+            <div  class="card-img" alt="..." style="height: 200px;"></div>
+            <div class="card-img-overlay">
+                <h5 class="card-title">{{ $link->title }}</h5>
+                <a  class='card-text' target="_blank" href='http://{{$link->link }}'>{{$link->summary }}</a>
+                <p class="card-text">Last updated {{ $link->created_at }}</p>
+            </div>
         </div>
-        </div>     
-        @endforeach
+        </div>
+       @endforeach
         <div class="col-sm-12 col-md-12 center-block">
         {{ $links->links() }}
         </div>
     </div>
 </div>
 <script>
-function tip(tip){
-        alert(tip);
-}
 function showDetail(a){
     
 	$('.modal-title').html($(a).siblings(".title").html());

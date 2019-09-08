@@ -1,7 +1,18 @@
 @extends('layouts.app')
-@section('myLoginMenu')
-    <li class="nav-item"><a href="/link/show" class="nav-link">show</a></li>
+@section('header-left')
+    @component('component/navbar/header-left')
+    @endcomponent
 @endsection
+@section('header-right')
+    @component('component/navbar/header-right')
+        @auth
+            <li class="nav-item">
+                <a href="/link/show" class="nav-link">show</a>
+            </li>
+        @endauth
+    @endcomponent
+@endsection
+
 @section('content')
        <div class="container-fluid">
             <div class="row flex-xl-nowap">
@@ -10,16 +21,16 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
                         </div>
-                            <input id="title" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <input id="Linktitle" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">Link</span>
                         </div>
-                            <input id="link" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            <input id="Linklink" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
                     </div>
                     <div class="form-group">
-                        <textarea id="summary" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="在这里输入资源简介"></textarea>
+                        <textarea id="Linksummary" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="在这里输入资源简介"></textarea>
                     </div>
                     <div class="mb-3">
                         <button  class='save btn btn-light' onclick="myfunction()" style="width:100%">保存</button>
@@ -30,9 +41,9 @@
     <script src="/js/jquery.js"></script>
     <script>
     function myfunction(){
-            title = $('#title').val();
-            link = $('#link').val();
-            summary = $('#summary').val();
+            title = $('#Linktitle').val();
+            link = $('#Linklink').val();
+            summary = $('#Linksummary').val();
             if(summary&&link&&title){
                 error = 1;
             }else{
