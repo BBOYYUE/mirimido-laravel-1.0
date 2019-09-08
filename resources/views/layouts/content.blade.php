@@ -25,6 +25,7 @@
 	#header{background-color:#0073aa;}
         body{background: #343a40;}
         iframe{background: #f8fafc;}
+
     </style>
 </head>
 <body>
@@ -39,10 +40,15 @@
     @section('modal')
     @show
     <div class="container-fluid" id='box'>
+        <div class="row msidebar">
+            <div class="col-12" style="padding:0">
+            @section('msidebar')
+            @show
+            </div>
+        </div>
         <div class="row" style="height: 100%">
-        <div class="col-md-2 col-sm-12" style="padding: 0">
+        <div class="col-md-2 col-sm-12 sidebar" style="padding: 0">
             @section('sidebar')
-
             @show
         </div>
         <div class="embed-responsive col-md-10 col-sm-12  embed-responsive-16by9">
@@ -59,6 +65,15 @@
 @section('script')
     <script src="/js/jquery.js"></script>
 <script>
+  $('.showmenu').click(function(){
+    $('.menu').toggle();
+  })
+    if($(window).width()>767){
+        $('.msidebar').css('display','none');
+    }else{
+        $('.sidebar').css('display','none');
+    }
+
     $('#box').css('height',$(window).height()*.9);
     
     function getPost(formData,url,callback,reload=true){
