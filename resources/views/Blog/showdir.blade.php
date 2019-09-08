@@ -49,10 +49,10 @@
 @endcomponent
 @endsection
 @section('content')
-   <div class="container-fluid">
+   <div class="container">
        <div class="row" >
         @foreach ($data->data['dir'] as $item)
-        <div class='col-md-2 col-sm-12' id="card">
+        <div class='col-lg-3 col-md-4 col-sm-12' id="card">
         <div class="card bg-wirte text-dark" >
             <div  class="card-img" alt="..." style="height: 200px;"></div>
             <div class="card-img-overlay">
@@ -63,17 +63,22 @@
         </div>
         </div>
         @endforeach
+        <div class="col-12">
+        <hr style="border-top:solid 1px #fff;" >
+        <div>
+        {{ $data->data['dir']->links() }}
+        </div>
+   
        </div>
     </div>
 @endsection
 @section('script')
- <script>
+@parent
+<script>
     function createdir(){
         var form = document.querySelector("#createdir");
         var formData = new FormData(form);
-        var request = new XMLHttpRequest();
-        request.open('post','createdir/gethtml');
-        request.send(formData);
+        getPost(formData,'createdir/gethtml','default');
     }
 </script>   
 @endsection

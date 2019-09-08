@@ -38,7 +38,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="createfile()">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="createfile()">Save changes</button>
             </div>
     @endcomponent
 @endsection
@@ -55,9 +55,7 @@
  function createfile(){
         var form = document.querySelector("#createfile");
         var formData = new FormData(form);
-        var request = new XMLHttpRequest();
-        request.open('post','createfile/gethtml');
-        request.send(formData);
+        getPost(formData,'createfile/gethtml','default');
     }
 </script>
 @endsection

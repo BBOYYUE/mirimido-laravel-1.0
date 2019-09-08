@@ -52,7 +52,7 @@
             if(error == 1){
                 $('.load').text('正在提交')
                 $('.load').fadeIn(1000);
-                 $.post('create',
+                 $.post('/link/create',
                     {
                         'title':title,
                         'link':link,

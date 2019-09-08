@@ -11,7 +11,7 @@
                 <textarea class="editormd-markdown-textarea" name="doc"  id="doc" style="display:none;">{{$data->data['doc']}}</textarea>
                 </div>
                 <div class="card-footer">
-                    <button  class='pull-right btn btn-success' type="button" onclick="saveMd()">保存</button>
+                    <button  class='pull-right btn btn-success' type="button" data-dismiss="modal" onclick="saveMd()">保存</button>
                     此编辑器使用了开源的Editor.md  - cy
                 </div>
         </div>
@@ -36,15 +36,19 @@
    });
 </script>
 <script>
+/*
+        setInterval(() => {
+            var form = document.querySelector("#md");
+            var formData = new FormData(form);
+            formData.append('path',"{{$data->data['path']}}");
+            getPost(formData,'/userfile/updatefile/gethtml','quiet',false);
+        }, 10000);
+*/    
  function saveMd(){
         var form = document.querySelector("#md");
         var formData = new FormData(form);
         formData.append('path',"{{$data->data['path']}}");
-        var request = new XMLHttpRequest();
-        request.open('post','/userfile/updatefile/gethtml');
-        data = request.send(formData);
-        console.log(formData);
-
+        getPost(formData,'/userfile/updatefile/gethtml','default',false);
     }
 </script>
 @endsection

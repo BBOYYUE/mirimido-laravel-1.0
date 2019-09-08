@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Format\format;
 use Carbon\Carbon;
 class Link extends Controller
 {
@@ -13,21 +14,19 @@ class Link extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($type='show')
+    public function index($type='show',format $format,\App\Link $link)
     {
-        //
-        switch($type){
-            case 'show':
-                $links = $this->show('all',new \App\Link);
-                // var_dump($links);
-                foreach($links as $key=>$link){
-                    $links[$key]->user=DB::table('users')->where('id','=',$link->user)->select('name')->first()->name;
-                }
-               return view('Link/show')->with('links',$links);
-            case 'create':
-                return view('LinkCreate');
-                break;
+        try{
+            $data = $link->leftJoin('users','users.id','links.user')->select('links.*','users.name')->paginate(24);
+            if($data){
+                $format->code = 1;
+                $format->data = $data;
+            }
+        }catch(\Exception $e){
+            $format->code=4;
+            $format->data=$e->getMessage();
         }
+        return view('Link/show')->with('data',$format->getHtml());
     }
     public function rights($rights){
         $r = 1;
@@ -53,36 +52,26 @@ class Link extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(Request $request,format $format)
     {
         //
-        $title = $request->input('title');
-        $link = $request->input('link');
-        $summary = $request->input('summary');
-        $user = Auth::id();
-        $rights = $this->rights(755);
-        $links = DB::table('links')->insertGetId(['title'=>$title,'link'=>$link,'created_at'=>Carbon::now(),'summary'=>$summary,'user'=>$user,'rights'=>$rights,'main'=>'null']);
-        //echo $title.$link.$summary.$user.$rights;
-        return $links;
+        try{
+            $title = $request->input('title');
+            $link = $request->input('link');
+            $summary = $request->input('summary');
+            $user = Auth::id();
+            $rights = $this->rights(755);
+            $links = DB::table('links')->insertGetId(['title'=>$title,'link'=>$link,'created_at'=>Carbon::now(),'summary'=>$summary,'user'=>$user,'rights'=>$rights,'main'=>'null']);
+            if($links){
+                $format->code = 1;
+                $format->data = ['message'=>'保存成功'];
+            }
+        }catch(\Exception $e){
+            $format->code = 4;
+            $format->data = ['message'=>$e->getMessage()];
+        }
+        return $format->getHtml();
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id,\App\link $link)
     {
         //

@@ -4,7 +4,7 @@ namespace App\Format;
 
 class format{
     
-    function gethtml(){
+    function getHtml(){
         return $this;
     }
 

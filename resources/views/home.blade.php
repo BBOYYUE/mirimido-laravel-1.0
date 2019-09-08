@@ -3,17 +3,9 @@
     @component('component/navbar/header-left')
     @endcomponent
 @endsection
-@section('header-right')
-    @component('component/navbar/header-right')
-            <li class="nav-item">
-                <a class="nav-link btn btn-link" data-toggle="modal" data-target="#headerModal">create</a>
-            </li>
-    @endcomponent
-@endsection
-
 @section('content')
-<div class="container-fluid">
-    <div class="jumbotron jumbotron-fluid" style="width:100%">
+<div class="container-fluid ">
+    <div class="jumbotron jumbotron-fluid">
   <div class="container text-center">
     <h1 class="display-3">Welcome</h1>
     <p class="lead">To Cmfac.com</p>

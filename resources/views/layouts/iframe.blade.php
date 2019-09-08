@@ -24,9 +24,57 @@
     </style>
 </head>
 <body>
+    @section('alert')
+        @component('component/alert/alert')
+        @endcomponent
+    @show
     @section('content')
     @show
 </body>
-@section('script')
-@show
+    @section('script')
+    <script>
+    function getPost(formData,url,callback,reload=true){
+        var request = new XMLHttpRequest();
+        request.open('post',url);
+        request.send(formData);
+        
+        request.onload = e => {
+            $('.alert-info').text('正在保存');
+            $('.alert-info').fadeIn(1000);
+        };
+        request.onloadend = e => {
+            data = JSON.parse(request.responseText);
+            console.log(data);
+            console.log(data.code);
+            if(data.code==1){
+                $('.alert-success').text(data.data.message);
+                if($('.alert-info').fadeOut()){
+                    $('.alert-success').fadeIn(3000);
+                    $('.alert-success').fadeOut(1000);
+                    if(reload){setTimeout(function(){location.reload()},5000)};
+                }
+            }else if(data.code==4){
+                $('.alert-info').fadeOut(1000);
+                $('.alert-danger').text(data.data.message);
+                $('.alert-danger').fadeIn(3000);
+            }else{
+                $('.alert-info').fadeOut(1000);
+                $('.alert-danger').text(data.data.message);
+                $('.alert-danger').fadeIn(3000);
+            } 
+        };
+        request.ontimeout = e =>{
+            $('.alert-info').fadeOut(1000);
+            $('.alert-secondary').text('请求超时');
+            $('.alert-secondary').fadeIn(3000);
+        };
+        request.onerror = e =>{
+            $('.alert-info').fadeOut(1000);
+            $('.alert-waring').text('请求失败');
+            $('.alert-waring').fadeIn(3000);
+        };
+    }
+    </script>
+    @show
+
 </html>

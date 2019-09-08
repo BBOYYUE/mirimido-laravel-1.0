@@ -28,13 +28,13 @@ class blogCore{
     }
     function getBlog($format){
         $dirid = $this->userdir->select('dirid')->get();
-        $format->data = ['dir'=>$this->dir->whereIn('id',$dirid)->get()];
+        $format->data = ['dir'=>$this->dir->whereIn('id',$dirid)->paginate(24)];
         $format->code = 1;
 
     }
     function getUserDir($format){
         $dirid = $this->userdir->where('userid',$this->userid)->select('dirid')->get();
-        $format->data = ['dir'=>$this->dir->whereIn('id',$dirid)->get(),'userid'=>$this->userid];
+        $format->data = ['dir'=>$this->dir->whereIn('id',$dirid)->paginate(24),'userid'=>$this->userid];
         $format->code = 1;
     }
     function getDirFile($request,$format){
@@ -74,7 +74,7 @@ class blogCore{
 
         }catch(\Exception $e){
             $format->code = 4;
-            $format->data = $e->getMessage();
+            $format->data = ['message'=>$e->getMessage()];
         }
     }
     function createFile($request,$format){
@@ -103,7 +103,7 @@ class blogCore{
 
         }catch(\Exception $e){
             $format->code = 4;
-            $format->data = $e->getMessage();
+            $format->data = ['message'=>$e->getMessage()];
         }
     }
     function showMd($request,$format){
@@ -130,7 +130,7 @@ class blogCore{
             }
         }catch(\Exception $e){
             $format->code = 4;
-            $format->data = $e->getMessage();            
+            $format->data = ['message'=>$e->getMessage()];            
         }
     }    
 }

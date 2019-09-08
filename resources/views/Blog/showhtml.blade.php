@@ -7,39 +7,9 @@
     @component('component/navbar/header-right')
         @auth
             <li class="nav-item">
-                <a class="nav-link btn btn-link" data-toggle="modal" data-target="#headerModal">create</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link btn btn-link" href="/userfile/gethtml?dir={{ $data->data['dir'] }}&dirid={{$data->data['dirid']}}">edit</a>
             </li>
         @endauth
-    @endcomponent
-@endsection
-@section('modal')
-   @component('component/modal/header')
-        <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">添加新的章节</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="createfile">
-                    @csrf
-                    <div class="form-group">
-                        <label for="title">标题</label>
-                        <input type="text" class="form-control" id="title" name='title' aria-describedby="titlelHelp"
-                            placeholder="Enter title">
-                        <small id="titleHelp" class="form-text text-muted">在这里输入标题</small>
-                        <input type='hidden' name='dir' value="{{ $data->data['dir'] }}"/>
-                        <input type='hidden' name='dirid' value="{{ $data->data['dirid'] }}"/>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="createfile()">Save changes</button>
-            </div>
     @endcomponent
 @endsection
 @section('sidebar')
@@ -48,22 +18,4 @@
         <li class="nav-item"><h5><a href="/storage/{{ltrim($item->url,'/public/x')}}" target="iframe">{{$item->name}}</a></h5></li>
         @endforeach
     @endcomponent
-@endsection
-@section('script')
-@parent
-<script>
- function createfile(){
-        var form = document.querySelector("#createfile");
-        var formData = new FormData(form);
-        var request = new XMLHttpRequest();
-        request.open('post','createfile/gethtml');
-        request.send(formData);
-        if(request.status==200){
-
-        }else if(request.status==302){
-            alert(123);
-            location.href = request.response.location;
-        }
-    }
-</script>
 @endsection
