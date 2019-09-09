@@ -58,7 +58,7 @@
         @foreach ($data->data as $link)
         <div class='col-lg-3 col-md-4 col-sm-12' id="card">
         <div class="card bg-wirte text-dark" >
-            <div  class="card-img" alt="..." style="height: 200px;"></div>
+            <div  class="card-img" alt="..." style="height: 15rem;"></div>
             <div class="card-img-overlay">
                 <h5 class="card-title">{{ $link->title }}</h5>
                 <hr>
