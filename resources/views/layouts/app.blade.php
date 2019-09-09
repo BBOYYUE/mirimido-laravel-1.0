@@ -11,6 +11,7 @@
     <!-- Scripts -->
     
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('font/iconfont.js') }}" defer></script>
 
     @section('head')
     @show
@@ -20,6 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('font/iconfont.css') }}">
     <style>
 	.card-text{
 		overflow:hidden;
@@ -30,6 +32,15 @@
 	}
         #header{background-color:#0073aa;}
         body{background: #343a40;}
+    .icon {
+        width: 1.5em;
+        height: 1.5em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
+
+ 
     </style>
 </head>
 <body>
@@ -50,7 +61,21 @@
     @section('content')
     @show
     @section('script')
+    <script src="/js/jquery.js"></script>
     <script>
+
+$('.card').mouseenter(function(){
+    $(this).children('.card-footer').fadeIn();
+    $(this).css('z-index','+=1');
+    $(this).children('.card-footer').css('z-index','+=2');
+    $(this).animate({margin:"-=.5rem"});
+})
+$('.card').mouseleave(function(){
+    $(this).children('.card-footer').fadeOut();
+    $(this).children('.card-footer').css('z-index','');
+    $(this).css('z-index','');
+    $(this).animate({margin:""});
+})
     function getPost(formData,url,callback,reload=true){
         var request = new XMLHttpRequest();
         request.open('post',url);

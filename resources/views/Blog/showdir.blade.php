@@ -57,15 +57,21 @@
             <div  class="card-img" alt="..." style="height: 200px;"></div>
             <div class="card-img-overlay">
                 <h5 class="card-title">{{$item->name}}</h5>
+                <hr class='hr'/>
                 <a  href="/userhtml/gethtml?dir={{$item->url}}&dirid={{$item->id}}" class="card-text">{{$item->summary}}</a>
                 <p class="card-text">Last updated {{$item->updated_at}}</p>
             </div>
+                <div class="card-footer" style="display: none">
+                    <span class="iconfont icon-tianxie"></span>
+                <a  href="/userhtml/gethtml?dir={{$item->url}}&dirid={{$item->id}}" class="float-right">
+                    <span class="iconfont icon-xiayibu"></span>
+                </a>
+                </div>
         </div>
         </div>
         @endforeach
         <div class="col-12">
         <hr style="border-top:solid 1px #fff;" >
-        <div>
         {{ $data->data['dir']->links() }}
         </div>
    

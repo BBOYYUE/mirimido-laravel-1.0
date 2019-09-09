@@ -11,6 +11,7 @@
     <!-- Scripts -->
     
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('font/iconfont.js') }}" defer></script>
 
     @section('head')
     @show
@@ -25,6 +26,13 @@
 	#header{background-color:#0073aa;}
         body{background: #343a40;}
         iframe{background: #f8fafc;}
+    .icon {
+        width: 1.5em;
+        height: 1.5em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
 
     </style>
 </head>
@@ -65,6 +73,9 @@
 @section('script')
     <script src="/js/jquery.js"></script>
 <script>
+$('.card').click(function(){
+    $(this '.card-footer').attr('class','visible');
+})
   $('.showmenu').click(function(){
     $('.menu').toggle();
   })

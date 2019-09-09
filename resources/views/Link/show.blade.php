@@ -64,6 +64,13 @@
                 <a  class='card-text' target="_blank" href='http://{{$link->link }}'>{{$link->summary }}</a>
                 <p class="card-text">Last updated {{ $link->created_at }}</p>
             </div>
+                <div class="card-footer" style="display: none">
+                    <span class="iconfont icon-tianxie"></span>
+                <a  class='card-text float-right' target="_blank" href='http://{{$link->link }}' >
+                    <span class="iconfont icon-xiayibu"></span>
+                </a>
+                </div>
+
         </div>
         </div>
         @endforeach
