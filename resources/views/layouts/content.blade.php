@@ -73,9 +73,6 @@
 @section('script')
     <script src="/js/jquery.js"></script>
 <script>
-$('.card').click(function(){
-    $(this '.card-footer').attr('class','visible');
-})
   $('.showmenu').click(function(){
     $('.menu').toggle();
   })
