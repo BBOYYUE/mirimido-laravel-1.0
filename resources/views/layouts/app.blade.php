@@ -79,7 +79,7 @@ $('.card').mouseleave(function(){
 }else{
     $('.card').click(function(){
         $(this).children('.card-footer').toggle();
-    }
+    })
 }
     function getPost(formData,url,callback,reload=true){
         var request = new XMLHttpRequest();
