@@ -78,7 +78,7 @@ $('.card').mouseleave(function(){
 })
 }else{
     $('.card').click(function(){
-        $(this).children('.card-footer').toggle();
+        $(this).children('.card-footer').toggle(1000);
     })
 }
     function getPost(formData,url,callback,reload=true){
