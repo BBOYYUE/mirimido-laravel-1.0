@@ -63,7 +63,7 @@
     @section('script')
     <script src="/js/jquery.js"></script>
     <script>
-
+if($(window).width>767){
 $('.card').mouseenter(function(){
     $(this).children('.card-footer').fadeIn();
     $(this).css('z-index','+=1');
@@ -76,6 +76,11 @@ $('.card').mouseleave(function(){
     $(this).css('z-index','');
     $(this).animate({margin:""});
 })
+}else{
+    $('.card').click(function(){
+        $(this).children('.card-footer').toggle();
+    }
+}
     function getPost(formData,url,callback,reload=true){
         var request = new XMLHttpRequest();
         request.open('post',url);
