@@ -61,6 +61,7 @@
             <div  class="card-img" alt="..." style="height: 200px;"></div>
             <div class="card-img-overlay">
                 <h5 class="card-title">{{ $link->title }}</h5>
+                <hr>
                 <p  class='card-text'>{{$link->summary }}</p>
                 <p class="card-text">Last updated {{ $link->created_at }}</p>
             </div>
