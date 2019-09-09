@@ -58,7 +58,7 @@
             <div class="card-img-overlay">
                 <h5 class="card-title">{{$item->name}}</h5>
                 <hr class='hr'/>
-                <a  href="/userhtml/gethtml?dir={{$item->url}}&dirid={{$item->id}}" class="card-text">{{$item->summary}}</a>
+                <p class="card-text">{{$item->summary}}</p>
                 <p class="card-text">Last updated {{$item->updated_at}}</p>
             </div>
                 <div class="card-footer" style="display: none">
