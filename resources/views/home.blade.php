@@ -20,57 +20,14 @@
 </div>
     <script src="/js/jquery.js"></script>
 <script>
+  $(window).ready(function(){
+  var audio= new Audio("http://cmfac.com/storage/music.mp3");//这里的路径写上mp3文件在项目中的绝对路径
+  audio.play()
   html = "<div style='width:1px;background:#fff;display:inline-block;margin:1px;'></div>";
   for(i=0;i<$(window).width()/6;i++){ 
     $('.top').append(html);
   }
   a = (function(){
-    /*
-    for(i=0;i<20;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*2)+'rem');
-    }
-    for(i=20;i<40;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*3)+'rem');
-    }
-    for(i=40;i<60;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*4)+'rem');
-    }
-    for(i=60;i<80;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*5)+'rem');
-    }
-    for(i=80;i<100;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*6)+'rem');
-    }
-    for(i=100;i<120;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*7)+'rem');
-    }
-    for(i=120;i<140;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*8)+'rem');
-    }
-    for(i=140;i<160;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*8)+'rem');
-    }
-    for(i=160;i<180;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*8)+'rem');
-    }
-    for(i=180;i<200;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*7)+'rem');
-    }
-    for(i=200;i<220;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*6)+'rem');
-    }
-    for(i=220;i<240;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*5)+'rem');
-    }
-    for(i=240;i<260;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*4)+'rem');
-    }
-    for(i=260;i<280;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*3)+'rem');
-    }
-    for(i=280;i<300;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*2)+'rem');
-    }*/
     for(i=0;i<$(window).width()/4;i++){
       $('.top').children('div').eq(i).height(Math.floor(Math.random()*5)+'rem');
     }
@@ -78,5 +35,6 @@
   window.requestAnimationFrame(a);
   })
   window.requestAnimationFrame(a);
+  });
 </script>
 @endsection
