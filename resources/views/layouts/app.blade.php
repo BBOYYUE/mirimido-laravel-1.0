@@ -63,7 +63,7 @@
     @section('script')
     <script src="/js/jquery.js"></script>
     <script>
-if($(window).width>767){
+if($(window).width()>767){
 $('.card').mouseenter(function(){
     $(this).children('.card-footer').fadeIn();
     $(this).css('z-index','+=1');
