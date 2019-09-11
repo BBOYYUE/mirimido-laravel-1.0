@@ -32,6 +32,7 @@
     $('.top').append(html);
   }
   console.log($(window).width()/40);
+  load =audio.addEventListener('canplay',function(){
    start =audio.addEventListener('play',function(){
     $('.top').show();
    a = (function(){
@@ -54,6 +55,7 @@
    })
    c = window.requestAnimationFrame(a);
    });
+  });
    end = audio.addEventListener('pause',function(){
     $('.top').hide();
    })
