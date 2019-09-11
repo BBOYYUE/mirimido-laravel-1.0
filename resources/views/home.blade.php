@@ -33,7 +33,7 @@
   }
   console.log($(window).width()/40);
 
-  load =audio.addEventListener('canplaythrough',function(){
+  load =audio.addEventListener('durationchange',function(){
     audio.controls =true;
    start =audio.addEventListener('play',function(){
     $('.top').show();
