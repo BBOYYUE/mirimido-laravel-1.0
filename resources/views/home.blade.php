@@ -61,6 +61,9 @@
    end = audio.addEventListener('pause',function(){
     $('.top').hide();
    })
+   load = audio.addEventListener('waiting',function(){
+    $('.top').hide();
+   })
   });
 </script>
 @endsection
