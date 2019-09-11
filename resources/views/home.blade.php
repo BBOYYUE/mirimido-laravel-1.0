@@ -19,7 +19,7 @@
 <div style="width:1px;height:100%;display:inline-block"></div>
 </div>
 <hr color="#fff" style="position: relative;">
-<div class="text-center"><audio></audio></div>
+<div class="text-center"><audio controls='false'></audio></div>
 </div>
     <script src="/js/jquery.js"></script>
 <script>
@@ -33,7 +33,7 @@
   }
   console.log($(window).width()/40);
 
-  load =audio.addEventListener('durationchange',function(){
+  load =audio.addEventListener('canplaythrough',function(){
     audio.controls =true;
    start =audio.addEventListener('play',function(){
     $('.top').show();
@@ -59,9 +59,6 @@
    });
   });
    end = audio.addEventListener('pause',function(){
-    $('.top').hide();
-   })
-   hide =audio.addEventListener('stalled',function(){
     $('.top').hide();
    })
   });
