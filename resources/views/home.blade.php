@@ -23,13 +23,13 @@
   $(window).ready(function(){
   var audio= new Audio("http://cmfac.com/storage/music.mp3");//这里的路径写上mp3文件在项目中的绝对路径
   audio.play()
-  html = "<div style='width:1px;background:#fff;display:inline-block;margin:1px;'></div>";
-  for(i=0;i<$(window).width()/6;i++){ 
+  html = "<div style='width:15px;background:#fff;display:inline-block;margin:1px;'></div>";
+  for(i=0;i<$(window).width()/40;i++){ 
     $('.top').append(html);
   }
   a = (function(){
-    for(i=0;i<$(window).width()/4;i++){
-      $('.top').children('div').eq(i).height(Math.floor(Math.random()*5)+'rem');
+    for(i=0;i<$(window).width()/40;i++){
+      $('.top').children('div').eq(i).animate({height:Math.floor(Math.random()*5)+'rem'},100);
     }
     
   window.requestAnimationFrame(a);
