@@ -15,26 +15,48 @@
       </div>
     </div> 
 </div>
-<div class="top text-center" style="position: relative;margin:0 auto;$(window).width()/2"></div>
+<div class="top text-center" style="position: relative;margin:0 auto;height:8rem;">
+<div style="width:1px;height:100%;display:inline-block"></div>
+</div>
 <hr color="#fff" style="position: relative;">
+<div class="text-center"><audio controls="controls"></audio></div>
 </div>
     <script src="/js/jquery.js"></script>
 <script>
   $(window).ready(function(){
-  var audio= new Audio("http://cmfac.com/storage/music.mp3");//这里的路径写上mp3文件在项目中的绝对路径
-  audio.play()
-  html = "<div style='width:15px;background:#fff;display:inline-block;margin:1px;'></div>";
+  var audio = document.querySelector("audio");
+  audio.src = "http://cmfac.com/storage/music.mp3";
+  //audio.play();
+  html = "<div style='width:15px;background:#fff;display:inline-block;margin:1px;position:relative;bottom:0;'></div>";
   for(i=0;i<$(window).width()/40;i++){ 
     $('.top').append(html);
   }
-  a = (function(){
-    for(i=0;i<$(window).width()/40;i++){
-      $('.top').children('div').eq(i).animate({height:Math.floor(Math.random()*5)+'rem'},100);
-    }
-    
-  window.requestAnimationFrame(a);
-  })
-  window.requestAnimationFrame(a);
+  console.log($(window).width()/40);
+   start =audio.addEventListener('play',function(){
+    $('.top').show();
+   a = (function(){
+       for(i=1;i<$(window).width()/200;i++){
+       $('.top').children('div').eq(i).animate({height:Math.floor(Math.random()*2)+'rem'},200);
+     }
+       for($(window).width()/200;i<$(window).width()/100;i++){
+       $('.top').children('div').eq(i).animate({height:Math.floor(Math.random()*3)+'rem'},200);
+     }
+       for($(window).width()/100;i<$(window).width()*3/200;i++){
+       $('.top').children('div').eq(i).animate({height:Math.floor(Math.random()*4)+'rem'},200);
+     }
+       for($(window).width()*3/200;i<$(window).width()/50;i++){
+       $('.top').children('div').eq(i).animate({height:Math.floor(Math.random()*3)+'rem'},200);
+     }
+       for($(window).width()/50;i<$(window).width()/40;i++){
+       $('.top').children('div').eq(i).animate({height:Math.floor(Math.random()*2)+'rem'},200);
+     }
+   window.requestAnimationFrame(a);
+   })
+   c = window.requestAnimationFrame(a);
+   });
+   end = audio.addEventListener('pause',function(){
+    $('.top').hide();
+   })
   });
 </script>
 @endsection
