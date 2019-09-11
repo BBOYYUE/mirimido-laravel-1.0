@@ -32,6 +32,7 @@
     $('.top').append(html);
   }
   console.log($(window).width()/40);
+
   load =audio.addEventListener('canplaythrough',function(){
     audio.controls =true;
    start =audio.addEventListener('play',function(){
@@ -58,6 +59,9 @@
    });
   });
    end = audio.addEventListener('pause',function(){
+    $('.top').hide();
+   })
+   hide =audio.addEventListener('stalled',function(){
     $('.top').hide();
    })
   });
