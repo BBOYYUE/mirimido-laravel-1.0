@@ -15,8 +15,8 @@
       </div>
     </div> 
 </div>
-<div class="top text-center" style="position: relative;margin:0 auto;height:8rem;">
-<span style="height:100%;display:inline-block"></span>
+<div class="top text-center" style="position: relative;margin:0 auto;height:5rem;">
+<span style="width:0;height:110%;display:inline-block"></span>
 </div>
 </div>
     <script src="/js/jquery.js"></script>
