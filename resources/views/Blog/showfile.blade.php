@@ -16,7 +16,7 @@
     @endcomponent
 @endsection
 @section('modal')
-   @component('component/modal/header')
+   @component('component/modal/create')
         <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">添加新的章节</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
