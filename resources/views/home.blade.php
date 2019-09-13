@@ -16,10 +16,8 @@
     </div> 
 </div>
 <div class="top text-center" style="position: relative;margin:0 auto;height:8rem;">
-<div style="width:1px;height:100%;display:inline-block"></div>
+<span style="height:100%;display:inline-block"></span>
 </div>
-<hr color="#fff" style="position: relative;">
-<div class="text-center"><audio controls='false'></audio></div>
 </div>
     <script src="/js/jquery.js"></script>
 <script>
