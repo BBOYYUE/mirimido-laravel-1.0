@@ -40,3 +40,9 @@ Route::get('/showHtml/{method}', 'blog@showHtml')->name('showmd');
 
 Route::get('/link/{type?}', 'Link@index')->name('link');
 Route::post('/link/create', 'Link@create')->name('createlink');
+
+
+
+Route::get('/birthday-card', function () {
+    return view('birthday');
+});
