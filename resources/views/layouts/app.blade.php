@@ -23,6 +23,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font/iconfont.css') }}">
     <style>
+    #card{
+        padding:5px 5px 0 5px ;
+    }
+    span{
+        color:#3490dc;
+    }
 	.card-text{
 		overflow:hidden;
 		text-overflow:ellipsis;
@@ -65,23 +71,20 @@
     <script>
 if($(window).width()>767){
 $('.card').mouseenter(function(){
-    $(this).children('.card-footer').fadeIn();
     $(this).css('z-index','+=1');
     $(this).children('.card-footer').css('z-index','+=2');
     $(this).animate({margin:"-=.5rem"});
 })
 $('.card').mouseleave(function(){
-    $(this).children('.card-footer').fadeOut();
     $(this).children('.card-footer').css('z-index','');
     $(this).css('z-index','');
     $(this).animate({margin:""});
 })
-}else{
-    $('.card').click(function(){
-        $(this).children('.card-footer').toggle(200);
-    $(this).children('.card-footer').css('z-index','+=2');
-    })
 }
+    </script>
+    @show
+@section('requestScript')
+<script>
     function getPost(formData,url,callback,reload=true){
         var request = new XMLHttpRequest();
         request.open('post',url);
@@ -124,6 +127,6 @@ $('.card').mouseleave(function(){
         };
     }
     </script>
-    @show
+@show
 </body>
 </html>
