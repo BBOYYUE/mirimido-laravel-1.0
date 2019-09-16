@@ -45,4 +45,8 @@ class blog extends Controller
        $blog->updateFile($request,$format);
        return $format->getHtml();
    }
+   function updateDir($type,Request $request,blogCore $blog,format $format){
+       $blog->updateDir($request,$format);
+       return $format->getHtml();
+   }
 }

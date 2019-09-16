@@ -53,18 +53,19 @@
     @foreach ($data->data as $link)
             @component('component.card.card',['data'=>$link]) 
         <div class="card-footer">
-            <a onclick="changeData('form{{$link->id}}')" class="edit">
+            <a onclick="changeDate('form{{$link->id}}')" class="edit">
                 <span class="iconfont icon-tianxie"></span>
             </a>
-            <a class="back" style="display: none" onclick="rechangData('form{{$link->id}}')">
+            <a class="back" style="display: none" onclick="rechangDate('form{{$link->id}}')">
                 <span class="iconfont icon-chehuisekuai"></span>
             </a>
-            <a onclick="updatedata('form{{$link->id}}')" class="float-right enter" style="display: none">
+            <a onclick="updateDate(this ,'form{{$link->id}}')" class="float-right enter" style="display: none">
                 <span class="iconfont icon-duigou"></span>
             </a>
             <a class='float-right next' target="_blank" href='http://{{$link->link }}'>
                 <span class="iconfont icon-xiayibu"></span>
             </a>
+            <input type="hidden" name="id" value="{{$link->id}}" />
         </div>
             @endcomponent
     @endforeach
@@ -79,11 +80,36 @@
 @section('script')
 @parent
 <script>
-function updateData(id){
-    console.log(id);
+function changeDate(id) {
+    title = $('#' + id).children('.card-title').text();
+    text = $('#' + id).children('.card-text').text();
+    $('#' + id).children('.card-title').hide();
+    $('#' + id).children('.card-text').hide();
+    $('#' + id).children('input').val(title);
+    $('#' + id).children('textarea').val(text);
+    $('#' + id).children('input').show();
+    $('#' + id).children('textarea').show();
+    $('#' + id).parent('div').siblings('.card-footer').children('.edit').hide();
+    $('#' + id).parent('div').siblings('.card-footer').children('.next').hide();
+    $('#' + id).parent('div').siblings('.card-footer').children('.enter').show();
+    $('#' + id).parent('div').siblings('.card-footer').children('.back').show();
+}
+function rechangDate(id) {
+    $('#' + id).children('.card-title').show();
+    $('#' + id).children('.card-text').show();
+    $('#' + id).children('input').hide();
+    $('#' + id).children('textarea').hide();
+    $('#' + id).parent('div').siblings('.card-footer').children('.edit').show();
+    $('#' + id).parent('div').siblings('.card-footer').children('.next').show();
+    $('#' + id).parent('div').siblings('.card-footer').children('.enter').hide();
+    $('#' + id).parent('div').siblings('.card-footer').children('.back').hide();
+}
+function updateDate(obj,id){
     var form=document.querySelector('#'+id);
+    id = $(obj).siblings('input').val();
     var formData = new FormData(form);
     formData.append('_token',"{{ csrf_token() }}")
+    formData.append('id',id);
     getPost(formData,'/link/update','default');
 }
 function showDetail(a){

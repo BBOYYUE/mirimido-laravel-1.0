@@ -96,9 +96,22 @@ class Link extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,format $format)
     {
         //
+        try{
+            $links = DB::table('links')->where('id',$request->input('id'))->update(['title'=>$request->input('title'),'summary'=>$request->input('summary')]);
+            //if($links){
+                $format->code = 1;
+                $format->data = ['message'=>'保存成功'];
+            /*}else{
+                throw new \Exception("保存失败");
+            }*/
+        }catch(\Exception $e){
+            $format->code = 4;
+            $format->data = ['message'=>$e->getMessage()];
+        }
+        return $format->getHtml();
     }
 
     /**

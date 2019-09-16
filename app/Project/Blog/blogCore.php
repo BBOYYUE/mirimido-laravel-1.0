@@ -2,6 +2,7 @@
 namespace App\Project\Blog;
 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class blogCore{
     public  $htmlHead = '
@@ -127,10 +128,26 @@ class blogCore{
             if($save){
 	            $format->code = 1;
                 $format->data = ['message'=>'保存成功'];
+            }else{
+                throw new \Exception("保存失败");
             }
         }catch(\Exception $e){
             $format->code = 4;
             $format->data = ['message'=>$e->getMessage()];            
         }
     }    
+    function updateDir($request,$format){
+        try{
+            $dirs = DB::table('dirs')->where('id',$request->input('id'))->update(['name'=>$request->input('title'),'summary'=>$request->input('summary')]);
+            /*if($dirs){*/
+                $format->code = 1;
+                $format->data = ['message'=>'保存成功'];
+            /*}else{
+                throw new \Exception("保存失败");
+            }*/
+        }catch(\Exception $e){
+            $format->code = 4;
+            $format->data = ['message'=>$e->getMessage()];
+        }
+    }
 }

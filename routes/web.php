@@ -29,6 +29,7 @@ Route::get('/userhtml/{method}', 'blog@showUserHtml')->name('userhtml');
 
 Route::post('/blog/createdir/{method}', 'blog@createDir')->name('blogcreate')->middleware('auth');
 Route::post('/userdir/createdir/{method}', 'blog@createDir')->name('userdircreate')->middleware('auth');
+Route::post('/updatedir/{method}', 'blog@updateDir')->name('updatedir')->middleware('auth');
 Route::post('/userfile/createfile/{method}', 'blog@createFile')->name('userfilecreate')->middleware('auth');
 Route::post('/userhtml/createfile/{method}', 'blog@createFile')->name('userfilecreate')->middleware('auth');
 Route::post('/userhtml/updatefile/{method}', 'blog@updateFile')->name('userfileupdate')->middleware('auth');
@@ -40,6 +41,7 @@ Route::get('/showHtml/{method}', 'blog@showHtml')->name('showmd');
 
 Route::get('/link/{type?}', 'Link@index')->name('link');
 Route::post('/link/create', 'Link@create')->name('createlink');
+Route::post('/link/update', 'Link@update')->name('updatelink');
 
 
 
