@@ -74,9 +74,12 @@
     @show
     @section('content')
     @show
+    <div class="box" style="width: 100%;">
+    </div>
     @section('script')
     <script src="/js/jquery.js"></script>
     <script>
+        $('.box').height($('#header').height());
 if($(window).width()>767){
 $('.card').mouseenter(function(){
     $(this).css('z-index','+=1');

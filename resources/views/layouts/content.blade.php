@@ -78,10 +78,13 @@
         </div>
         </div>
     </div>
+    <div class="box" style="width: 100%;">
+    </div>
 </body>
 @section('script')
     <script src="/js/jquery.js"></script>
 <script>
+        $('.box').height($('#header').height());
   $('.showmenu').click(function(){
     $('.menu').toggle();
   })
