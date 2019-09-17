@@ -23,6 +23,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font/iconfont.css') }}">
     <style>
+    #header{
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        z-index: 2;
+    }
     #card{
         padding:5px 5px 0 5px ;
     }

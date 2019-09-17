@@ -23,6 +23,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
 
+    #header{
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        z-index: 2;
+    }
 	#header{background-color:#0073aa;}
         body{background: #343a40;}
         iframe{background: #f8fafc;}
@@ -78,7 +84,7 @@
   })
     if($(window).width()>767){
         $('.msidebar').css('display','none');
-        $('#box').css('height',$(window).height()*.9);
+        $('#box').css('height',$(window).height()-$('#header').height());
     }else{
         $('.sidebar').css('display','none');
         $('#box').css('height',$(window).height());
