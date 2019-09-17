@@ -27,7 +27,7 @@
         position: fixed;
         width: 100%;
         bottom: 0;
-        z-index: 2;
+        z-index: 999;
     }
 	#header{background-color:#0073aa;}
         body{background: #343a40;}
@@ -38,6 +38,9 @@
         vertical-align: -0.15em;
         fill: currentColor;
         overflow: hidden;
+    }
+    .card-footer{
+        z-index:2;
     }
 
     </style>

@@ -27,7 +27,7 @@
         position: fixed;
         width: 100%;
         bottom: 0;
-        z-index: 2;
+        z-index: 999;
     }
     #card{
         padding:5px 5px 0 5px ;
