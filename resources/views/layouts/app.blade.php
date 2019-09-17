@@ -59,7 +59,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-#0073aa" id="header"
+    <nav class="navbar navbar-expand-lg navbar-dark bg-#0073aa" id="header">
     
         @section('header-left')
         @show
