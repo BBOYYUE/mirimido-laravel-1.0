@@ -51,13 +51,15 @@
         fill: currentColor;
         overflow: hidden;
     }
-
+    .card-footer{
+        z-index:2;
+    }
  
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-#0073aa" id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-#0073aa" id="header"
     
         @section('header-left')
         @show
