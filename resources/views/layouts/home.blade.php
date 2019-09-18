@@ -21,11 +21,29 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('font/iconfont.css') }}">
     <style>
-
-	#header{background-color:#0073aa;}
+    #header{
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        z-index: 999;
+    }
+    #card{
+        padding:5px 5px 0 5px ;
+    }
+    span{
+        color:#3490dc;
+    }
+	.card-text{
+		overflow:hidden;
+		text-overflow:ellipsis;
+		display:-webkit-box;
+		-webkit-line-clamp:4;
+		-webkit-box-orient:vertical;
+	}
+        #header{background-color:#0073aa;}
         body{background: #343a40;}
-        iframe{background: #f8fafc;}
     .icon {
         width: 1.5em;
         height: 1.5em;
@@ -33,58 +51,43 @@
         fill: currentColor;
         overflow: hidden;
     }
-
+    .card-footer{
+        z-index:2;
+    }
+ 
     </style>
 </head>
 <body>
-
-    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-#0073aa" id="header">
-        @section('header-left')
-        @show
-        @section('header-right')
-        @show
-    </nav>
+   @section('alert')
+        @component('component/alert/alert')
+        @endcomponent
+    @show
     @section('modal')
     @show
-    <div class="container-fluid" id='box'>
-        <div class="row msidebar">
-            <div class="col-12" style="padding:0">
-            @section('msidebar')
-            @show
-            </div>
-        </div>
-        <div class="row" style="height: 100%">
-        <div class="col-md-2 col-sm-12 sidebar" style="padding: 0">
-            @section('sidebar')
-            @show
-        </div>
-        <div class="embed-responsive col-md-10 col-sm-12  embed-responsive-16by9">
-            @empty($data->data['file'])
-            <iframe class="embed-responsive-item"  id="iframe" name="iframe" style="padding:0;width:100%" src="/showHtml/gethtml"></iframe>
-            @endempty
-            @empty($data->data['html'])
-            <iframe class="embed-responsive-item" id="iframe" name="iframe"  src="/showMd/gethtml"></iframe>
-            @endempty
-        </div>
-        </div>
+    @section('content')
+    @show
+    <div class="box" style="width: 100%;">
     </div>
-</body>
-@section('script')
+    @section('script')
     <script src="/js/jquery.js"></script>
+    <script>
+        $('.box').height($('#header').height());
+if($(window).width()>767){
+$('.card').mouseenter(function(){
+    $(this).css('z-index','+=1');
+    $(this).children('.card-footer').css('z-index','+=2');
+    $(this).animate({margin:"-=.5rem"});
+})
+$('.card').mouseleave(function(){
+    $(this).children('.card-footer').css('z-index','');
+    $(this).css('z-index','');
+    $(this).animate({margin:""});
+})
+}
+    </script>
+    @show
+@section('requestScript')
 <script>
-  $('.showmenu').click(function(){
-    $('.menu').toggle();
-  })
-    if($(window).width()>767){
-        $('.msidebar').css('display','none');
-        $('#box').css('height',$(window).height()*.9);
-    }else{
-        $('.sidebar').css('display','none');
-        $('#box').css('height',$(window).height());
-    }
-
-    
     function getPost(formData,url,callback,reload=true){
         var request = new XMLHttpRequest();
         request.open('post',url);
@@ -99,7 +102,7 @@
             console.log(data);
             console.log(data.code);
             if(data.code==1){
-                $('.alert-success').text(data.data);
+                $('.alert-success').text(data.data.message);
                 if($('.alert-info').fadeOut()){
                     $('.alert-success').fadeIn(3000);
                     $('.alert-success').fadeOut(1000);
@@ -107,7 +110,11 @@
                 }
             }else if(data.code==4){
                 $('.alert-info').fadeOut(1000);
-                $('.alert-danger').text(data.data);
+                $('.alert-danger').text(data.data.message);
+                $('.alert-danger').fadeIn(3000);
+            }else{
+                $('.alert-info').fadeOut(1000);
+                $('.alert-danger').text(data.data.message);
                 $('.alert-danger').fadeIn(3000);
             } 
         };
@@ -122,6 +129,7 @@
             $('.alert-waring').fadeIn(3000);
         };
     }
-</script>
+    </script>
 @show
+</body>
 </html>
