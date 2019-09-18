@@ -56,6 +56,9 @@
 if($(window).width()<767){
   $('img').attr('src',"{{asset('images/background2.jpg')}}");
 }
+if(($(window).height())<($('body-1').height()+$('.top').height()+$('#myTab').height())){
+  $('.tab-content').css('display','none');
+}
   function showhome(){
     $('.body-1').css('display','none');
     $('.top').css('display','block');
