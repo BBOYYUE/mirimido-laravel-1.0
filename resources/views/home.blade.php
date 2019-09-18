@@ -4,9 +4,9 @@
     @endcomponent
 @endsection
 @section('content')
-<div class="container-fluid ">
+<div class="container-fluid" >
   <div class="row" style="padding:0">
-    <div class="jumbotron jumbotron-fluid col-12">
+    <div class="jumbotron jumbotron-fluid col-12" style="background:#fff">
       <div class="container text-center" > 
         <h1 class="display-3">欢迎</h1>
         <h3>来到 Cmfac.com</h3>

@@ -26,7 +26,7 @@
   .alert{
     display: none;
     position: fixed;
-    top:3rem;
+    top:0rem;
     z-index: 999;
     width: 100%;
   }
