@@ -11,6 +11,7 @@
     <!-- Scripts -->
     
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.js') }}" defer></script>
     <script src="{{ asset('font/iconfont.js') }}" defer></script>
 
     @section('head')
