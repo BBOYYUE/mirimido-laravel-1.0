@@ -29,11 +29,11 @@ Route::get('/userhtml/{method}', 'blog@showUserHtml')->name('userhtml');
 
 Route::post('/blog/createdir/{method}', 'blog@createDir')->name('blogcreate')->middleware('auth');
 Route::post('/userdir/createdir/{method}', 'blog@createDir')->name('userdircreate')->middleware('auth');
-Route::post('/updatedir/{method}', 'blog@updateDir')->name('updatedir')->middleware('auth');
+Route::post('/updatedir/{method}', 'blog@updateDir')->name('updatedir');
 Route::post('/userfile/createfile/{method}', 'blog@createFile')->name('userfilecreate')->middleware('auth');
 Route::post('/userhtml/createfile/{method}', 'blog@createFile')->name('userfilecreate')->middleware('auth');
-Route::post('/userhtml/updatefile/{method}', 'blog@updateFile')->name('userfileupdate')->middleware('auth');
-Route::post('/userfile/updatefile/{method}', 'blog@updateFile')->name('userfileupdate')->middleware('auth');
+Route::post('/userhtml/updatefile/{method}', 'blog@updateFile')->name('userfileupdate');
+Route::post('/userfile/updatefile/{method}', 'blog@updateFile')->name('userfileupdate');
 
 Route::get('/showMd/{method}', 'blog@showMd')->name('showmd');
 Route::get('/showHtml/{method}', 'blog@showHtml')->name('showmd');

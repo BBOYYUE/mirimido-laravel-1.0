@@ -58,7 +58,7 @@
     </style>
 </head>
 <body>
-
+<!--
     <nav class="navbar navbar-expand-lg navbar-dark bg-#0073aa" id="header">
     
         @section('header-left')
@@ -66,6 +66,7 @@
         @section('header-right')
         @show
     </nav>
+-->
     @section('alert')
         @component('component/alert/alert')
         @endcomponent

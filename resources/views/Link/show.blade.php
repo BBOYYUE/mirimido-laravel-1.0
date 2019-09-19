@@ -1,19 +1,21 @@
 @extends('layouts.app')
 @section('head')
 @endsection
-@section('header-left')
-    @component('component/navbar/header-left')
-    @endcomponent
-@endsection
-@section('header-right')
-    @component('component/navbar/header-right')
-        @auth
+<!--
+@/section('header-left')
+    @/component('component/navbar/header-left')
+    @/endcomponent
+@/endsection
+@/section('header-right')
+    @/component('component/navbar/header-right')
+        @/auth
             <li class="nav-item">
                 <a class="nav-link btn btn-link" data-toggle="modal" data-target="#createModal">create</a>
             </li>
-        @endauth
-    @endcomponent
-@endsection
+        @/endauth
+    @/endcomponent
+@/endsection
+        -->
 @section('modal')
 @component('component.modal.create') 
             <div class="modal-header">

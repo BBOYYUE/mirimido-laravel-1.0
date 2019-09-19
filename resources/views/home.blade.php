@@ -23,7 +23,7 @@
   <div class="row" style="background:#fff">
 <ul class="nav nav-tabs justify-content-center col-12" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link" id="home" href="/" aria-controls="home" role="tab"aria-selected="false">Home</a>
+    <a class="nav-link" id="home"  aria-controls="home" role="tab"aria-selected="false" onclick="showHome()">Home</a>
   </li>
   <li class="nav-item">
     <a class="nav-link active" id="libary-tab" data-toggle="tab" href="#a" role="tab" aria-controls="libary" aria-selected="true" onclick="hidehome()">Libary</a>
@@ -32,7 +32,7 @@
     <a class="nav-link" id="link-tab" data-toggle="tab" href="#b" role="tab" aria-controls="link" aria-selected="false" onclick="hidehome()">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="show" href="#c" role="tab" aria-controls="show" onclick="showhome()" aria-selected="false">show</a>
+    <a class="nav-link" id="show" href="#c" role="tab" aria-controls="show" onclick="showMusic()" aria-selected="false">show</a>
   </li>
 
 
@@ -56,13 +56,19 @@
 if($(window).width()<767){
   $('img').attr('src',"{{asset('images/background2.jpg')}}");
 }
-if(($(window).height())<($('body-1').height()+$('.top').height()+$('#myTab').height())){
-  $('.tab-content').css('display','none');
+function showHome(){
+  $('.tab-content').css('display','block');
+    $('.body-1').css('display','block');
+    $('.top').css('display','block');
+    $('.top').css('height','10rem');
+  $('.down').children('div').css('position','relative');
+  $('iframe').height($(window).height()-$('#myTab').height());
+  $('iframe').width($('iframe').parent('div').width());
 }
-  function showhome(){
+  function showMusic(){
     $('.body-1').css('display','none');
     $('.top').css('display','block');
-    $('.top').css('height',$(window).height());
+    $('.top').css('height',$(window).height()-$('#myTab').height());
     $('.tab-content').css('display','none');
 
   }
@@ -71,10 +77,10 @@ if(($(window).height())<($('body-1').height()+$('.top').height()+$('#myTab').hei
     $('.body-1').css('display','none');
     $('.top').css('display','none');
   }
-  $('.down').height($(window).height()*1.1);
-  $('.down').children('div').css('position','relative');
-  $('iframe').height($(window).height());
-  $('iframe').width($('iframe').parent('div').width());
+ // $('.down').height($(window).height()*1.1);
+showHome();
+</script>
+<script>
   if($(window).width()>728){
     boxwidth = "1rem";
   }else{
@@ -84,8 +90,6 @@ if(($(window).height())<($('body-1').height()+$('.top').height()+$('#myTab').hei
   for(i=0;i<32;i++){ 
     $('.top').prepend(html);
   }
-</script>
-<script>
     (window)
     var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     var analyser = audioCtx.createAnalyser();
