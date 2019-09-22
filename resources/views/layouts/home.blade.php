@@ -21,8 +21,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font/iconfont.css') }}">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
     #header{
         position: fixed;
@@ -33,9 +33,7 @@
     #card{
         padding:5px 5px 0 5px ;
     }
-    span{
-        color:#3490dc;
-    }
+  
 	.card-text{
 		overflow:hidden;
 		text-overflow:ellipsis;
@@ -72,7 +70,6 @@
     @section('script')
     <script src="/js/jquery.js"></script>
     <script>
-        $('.box').height($('#header').height());
 if($(window).width()>767){
 $('.card').mouseenter(function(){
     $(this).css('z-index','+=1');

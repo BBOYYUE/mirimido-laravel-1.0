@@ -1,13 +1,20 @@
 @extends('layouts.home')
+@section('head')
+<style>
+ iframe{
+   width:100%;
+ }   
+</style>
+@endsection
 @section('header-left')
 @component('component/navbar/header-left')
 @endcomponent
 @endsection
 @section('content')
-<div class="container-fluid up">
-<div class="body-1" >
-  <div class="row" style="padding:0">
-    <div class="jumbotron jumbotron-fluid col-12" style="background:#fff;margin:0;">
+<div class="container-fluid showview">
+
+<div class="firstview">
+    <div class="jumbotron jumbotron-fluid home-jumbotron" style="background:#fff;margin:1rem 0 0 0;">
       <div class="container text-center">
         <h1 class="display-3">欢迎</h1>
         <h3>来到 Cmfac.com</h3>
@@ -17,189 +24,96 @@
           写了一半的权限管理然后放弃了.因为别的地方已经实现了，没必要在做一次.</p>
       </div>
     </div>
+</div>
+</div>
+<div class="secondview" style="background:#fff;position:fixed;width:100%;z-index:2;">
+  @component('component/navbar/main')
+  @endcomponent
+</div>
+<div class="thirdview" style="width:100%;">
+  <div class="animate text-center">
+    <span style="width:0;height:100%;display:inline-block"></span>
   </div>
-</div>
-<div class="top text-center"  style="height: 10rem;width:100%;">
-  <span style="width:0;height:100%;display:inline-block"></span>
-</div>
-<div class="row" style="background:#fff">
-  <ul class="nav nav-tabs justify-content-center col-12" id="myTab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link" id="home" aria-controls="home" role="tab" aria-selected="false" onclick="Home()">Home</a>
-      <!--a class="nav-link" id="home"  aria-controls="home" role="tab"aria-selected="false" onclick="showHome()">Home</a-->
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" id="libary-tab" data-toggle="tab" href="#a" role="tab" aria-controls="libary"
-        aria-selected="true">Libary</a>
-      <!--a class="nav-link active" id="libary-tab" data-toggle="tab" href="#a" role="tab" aria-controls="libary" aria-selected="true" onclick="hidehome()">Libary</a-->
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="link-tab" data-toggle="tab" href="#b" role="tab" aria-controls="link"
-        aria-selected="false">Link</a>
-      <!--a class="nav-link" id="link-tab" data-toggle="tab" href="#b" role="tab" aria-controls="link" aria-selected="false" onclick="hidehome()">Link</a-->
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="show" role="tab" aria-controls="show" onclick="Music()"
-        aria-selected="false">Music</a>
-    </li>
-  </ul>
-  <div class="tab-content col-12" style="padding:0;margin：0;" id="myTabContent">
-    <div class="tab-pane fade show active embed-responsive-16by9" id="a" role="tabpanel"
-      aria-labelledby="libary-tab">
-      <iframe src='/blog/gethtml' class="embed-responsive-item" style="border: none;"></iframe>
-    </div>
-    <div class="tab-pane fade embed-responsive-16by9" id="b" role="tabpanel" aria-labelledby="link-tab">
-      <iframe src='/link' class="embed-responsive-item" style="border: none;"></iframe>
-    </div>
+  <div class="progress" style="height: 1px;">
+    <div class="progress-bar music-progress-bar" role="progressbar"  aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
+<ul class="list-group list-group-flush text-center music-list" style="margin:0 auto;">
+  <li class="list-group-item" onclick=getMusic('{{ asset("music/music_1.mp3")}}')>ニャースのバラード (喵喵的叙事曲)</li>
+  <li class="list-group-item" onclick=getMusic('{{ asset("music/music_2.mp3")}}')>富士山下（爱情转移）钢琴伴奏纯音乐版</li>
+  <li class="list-group-item" onclick=getMusic('{{ asset("music/music_3.mp3")}}')>无羁(钢琴独奏版)</li>
+</ul>
+<style>
+  .list-group-item{
+    background:rgba(203,200,246,0);
+    color: #fff;
+  }
+  </style>
 </div>
-</div>
-<div class="down" style="position: fixed;width:100%;top:0;z-index:-1;">
-<img src="{{asset('images/background.jpg')}}" style="width:100%;height:100%;padding: 0;margin: 0">
-</div>
+
+  <div class="backgroundview" style="position: fixed;top:0;z-index:-1;">
+    <img src="{{asset('images/background.jpg')}}" style="padding: 0;margin: 0;width:100%">
+  </div>
+ <div class="box" style="width:100%;"></div> 
 <script src="/js/jquery.js"></script>
 <script src="/js/skrollr.js"></script>
-<script>
-
-if ($(window).width() < 767) {
-  $('img').attr('src', "{{asset('images/background2.jpg')}}");
-}
-  $('iframe').height($(window).height()-$('#myTab').height());
-  $('iframe').width($('iframe').parent('div').width());
-/*
-function showHome(){
-  $('.tab-content').css('display','block');
-    $('.body-1').css('display','block');
-    $('.top').css('display','block');
-    $('.top').css('height','10rem');
-  $('.down').children('div').css('position','relative');
-  $('iframe').height($(window).height()-$('#myTab').height());
-  $('iframe').width($('iframe').parent('div').width());
-}
-  function showMusic(){
-    $('.body-1').css('display','none');
-    $('.top').css('display','block');
-    $('.top').css('height',$(window).height()-$('#myTab').height());
-    $('.tab-content').css('display','none');
-
-  }
-  function hidehome(){
-    $('.tab-content').css('display','block');
-    $('.body-1').css('display','none');
-    $('.top').css('display','none');
-  }
-  // $('.down').height($(window).height()*1.1);
-showHome();
-*/
-</script> 
+<script src="/js/background-img.js"></script>
+<script src="/js/audio-amimate.js"></script>
 <script type="text/javascript">
-      body_1_height = $('.body-1').height();
-      top_height = $('.top').height();
-      body_height = $('body').height();
+$('.box').height($(window).height()*.3);
+$('iframe').height($(window).height())
+$('.show-secondview').click(function(){
+  if($('.secondview').css('top')!='0px'){
+    $('.secondview').animate({top:0},500);
+    $('.show-secondview').text('hide');
+  }else{
+    //$('.secondview').animate({top:$('.firstview').height()+50},500);
+    $('.secondview').animate({top:$(window).height()*.9},500);
+    $('.show-secondview').text('show');
+  }
+})
+    $('.secondview').animate({top:$(window).height()*.9},500);
+    //$('.secondview').animate({top:$('.firstview').height()+50},500);
+//,function(){$('.secondview').css('top','50rem');});
+
+/*
+  firstViewHeight = $('.firstview').height();
+  secondViewHeight = $(window).height()-$('#myTab').height()-firstViewHeight-$('.home-jumbotron').height();
+  */
+ /*
+ windowHeight = $(window).height();
+ secondViewMaxHeight = windowHeight-$('#myTab').height();
   var s = skrollr.init({
     render: function (data) {
       console.log(data);
       max = data.maxTop;
       last = data.lastTop;
+      curTop = data.curTop;
+      lastTop = data.lastTop;
+      maxTop = data.maxTop;
       count =  last/max;
       console.log(count);
-      if(count>0.45&&data.direction=='down'){
+      //curTop: 0, lastTop: 1, : 0, direction: "up"
+      if(count>0.6&&data.direction=='down'){
         hidehome();
-      }else if(data.curTop==0&&data.direction=='up'){
+      }
+      else if(curTop==0&&lastTop==1&&maxTop==0&&data.direction=='up'){
         showHome();
       }
     }
   });
-    function hidehome(){
-      $('.top').animate({height:'0'},500);
-      $('.body-1').animate({height:'0'},500);
-      $('body').animate({height:$(window).height()},500);
-    }
-    function showHome(){
-      $('body').animate({height:body_height});
-      $('.body-1').animate({height:body_1_height},500);
-      $('.top').animate({height:top_height},500);
-    }
-    function Music(){
-      $('.body-1').attr('class','body-1 invisible');
-    }
-    function Home(){
-      $('.body-1').attr('class','body-1 visible');
-    }
-</script>
 
+  function hidehome(){
+    $('.firstview').fadeOut()
+    $('iframe').height(secondViewMaxHeight);
+    //$('.firstview').animate({height:'0'},500);
 
-<script>
-if ($(window).width() > 728) {
-  boxwidth = "1rem";
-} else {
-  boxwidth = '.3rem';
-}
-html = "<div style='width:" + boxwidth + ";background:#fff;display:inline-block;margin:1px;position:relative;bottom:0;top:-4rem;'></div>";
-for (i = 0; i < 32; i++) {
-  $('.top').prepend(html);
-}
-(window)
-var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-var analyser = audioCtx.createAnalyser();
-analyser.fftSize = 32;
-var bufferLength = analyser.fftSize;
-var dataArray = new Uint8Array(bufferLength);
-analyser.getByteTimeDomainData(dataArray);
-
-
-// 获取音频 
-
-function getData() {
-  source = audioCtx.createBufferSource();
-  var request = new XMLHttpRequest();
-
-  request.open('GET', '{{asset("music.mp3")}}', true);
-
-  request.responseType = 'arraybuffer';
-
-
-  request.onload = function () {
-    var audioData = request.response;
-
-    audioCtx.decodeAudioData(audioData, function (buffer) {
-      source.buffer = buffer;
-
-      source.connect(audioCtx.destination);
-      source.loop = true;
-    },
-
-      function (e) { "Error with decoding audio data" + e.err });
   }
-
-  request.send()
-}
-getData();
-source.connect(analyser);
-
-
-// draw an oscilloscope of the current audio source
-function draw() {
-
-  drawVisual = requestAnimationFrame(draw);
-  analyser.getByteTimeDomainData(dataArray);
-  for (i = 0; i < bufferLength; i++) {
-    $('.top').children('div').eq(i).animate({ height: ((dataArray[i] / 128.0) - .3) * 3 + 'rem' }, 1000 / 60);
-  }
-}
-draw();
-source.start(0);
-$('.top').click(function () {
-  if (audioCtx.state === 'running') {
-    audioCtx.suspend().then(function () {
-      window.cancelAnimationFrame(drawVisual);
-    });
-  } else if (audioCtx.state === 'suspended') {
-    audioCtx.resume().then(function () {
-      draw();
-    });
-  }
-})
+  function showHome(){
+    $('.firstview').fadeIn()
+    }
+  showHome();
+ 
+*/
 </script>
 @endsection
 
