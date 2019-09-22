@@ -11,7 +11,7 @@ analyser.getByteTimeDomainData(dataArray);
     $('.music-list').width("80%");
   } else {
     boxwidth = '.3rem';
-    boxheight = $('.home-jumbotron').height()*.5;
+    boxheight = $('.home-jumbotron').height();
     $('.music-list').width("90%");
   }
   
@@ -64,8 +64,7 @@ function makebox() {
   }
 }
 function getMusic(url){
-      source.stop();
-      window.cancelAnimationFrame(drawVisual);
+      source.stop()
       //var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       getData(url);
       source.connect(analyser);
