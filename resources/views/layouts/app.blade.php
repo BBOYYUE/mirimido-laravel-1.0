@@ -33,7 +33,10 @@
         padding:5px 5px 0 5px ;
     }
     span{
-        color:#3490dc;
+        color:#2e3761;
+    }
+    a{
+        color:#2e3761;
     }
 	.card-text{
 		overflow:hidden;
@@ -42,8 +45,8 @@
 		-webkit-line-clamp:4;
 		-webkit-box-orient:vertical;
 	}
-        #header{background-color:#0073aa;}
-        body{background: #343a40;}
+        #header{background-color:#2e3761;}
+        body{background:#2e3761;}
     .icon {
         width: 1.5em;
         height: 1.5em;

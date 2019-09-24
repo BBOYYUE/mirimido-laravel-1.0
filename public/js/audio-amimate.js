@@ -64,8 +64,8 @@ function makebox() {
   }
 }
 function getMusic(url){
-      source.stop()
       window.cancelAnimationFrame(drawVisual);
+      source.stop()
       //var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       getData(url);
       source.connect(analyser);

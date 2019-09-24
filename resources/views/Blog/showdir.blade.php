@@ -58,7 +58,7 @@
             <a onclick="updateDate(this,'form{{$item->id}}')" class="float-right enter" style="display: none">
                 <span class="iconfont icon-duigou"></span>
             </a>
-            <a class='float-right next' target="_blank" href='/userhtml/gethtml?dir={{$item->url }}&dirid={{$item->id}}'>
+            <a class='float-right next' target="_self" href='/userhtml/gethtml?dir={{$item->url }}&dirid={{$item->id}}'>
                 <span class="iconfont icon-xiayibu"></span>
             </a>
             <input type="hidden" name="id" value="{{$item->id}}" />

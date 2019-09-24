@@ -21,10 +21,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('font/iconfont.css') }}">
     <style>
 
-	#header{background-color:#0073aa;}
-        body{background: #343a40;}
+	#header{background-color:#2e3761;}
+        body{background:#2e3761;}
         iframe{background: #f8fafc;}
     .icon {
         width: 1.5em;
@@ -33,18 +34,23 @@
         fill: currentColor;
         overflow: hidden;
     }
-
+    span{
+        color: #2e3761;
+    }
+    a{
+        color:#2e3761;
+    }
     </style>
 </head>
 <body>
 
     
-    <nav class="navbar navbar-expand-lg navbar-dark bg-#0073aa" id="header">
+    <!--<nav class="navbar navbar-expand-lg navbar-dark bg-#0073aa" id="header">
         @section('header-left')
         @show
         @section('header-right')
         @show
-    </nav>
+    </nav>-->
     @section('modal')
     @show
     <div class="container-fluid" id='box'>
@@ -78,7 +84,7 @@
   })
     if($(window).width()>767){
         $('.msidebar').css('display','none');
-        $('#box').css('height',$(window).height()*.9);
+        $('#box').css('height',$(window).height()*.95);
     }else{
         $('.sidebar').css('display','none');
         $('#box').css('height',$(window).height());

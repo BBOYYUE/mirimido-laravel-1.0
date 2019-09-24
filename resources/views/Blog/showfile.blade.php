@@ -1,20 +1,22 @@
 @extends('layouts/content')
-@section('header-left')
-    @component('component/navbar/header-left')
-    @endcomponent
-@endsection
-@section('header-right')
-    @component('component/navbar/header-right')            
-        @auth
+<!--
+@/section('header-left')
+    @/component('component/navbar/header-left')
+    @/endcomponent
+@/endsection
+@/section('header-right')
+    @/component('component/navbar/header-right')            
+        @/auth
             <li class="nav-item">
                 <a class="nav-link btn btn-link" data-toggle="modal" data-target="#createModal">create</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link btn btn-link" href="/userhtml/gethtml?dir={{ $data->data['dir'] }}&dirid={{ $data->data['dirid']}}">show</a>
             </li>
-        @endauth
-    @endcomponent
-@endsection
+        @/endauth
+    @/endcomponent
+@/endsection
+        -->
 @section('modal')
    @component('component/modal/create')
         <div class="modal-header">
@@ -51,9 +53,9 @@
 @endsection
 
 @section('sidebar')
-    @component('component/navbar/sidebar')
+    @component('component/navbar/sidebar',['method'=>'show','data'=>$data])
         @foreach ($data->data['file'] as $item)
-        <li class="nav-item"><h5><a href="/showMd/gethtml?path={{$item->url}}" target="iframe">{{$item->name}}</a></h5></li>
+            <li class="list-group-item list-group-item-action"><a href="/showMd/gethtml?path={{$item->url}}" target="iframe">{{$item->name}}</a></li>
         @endforeach
     @endcomponent
 @endsection
