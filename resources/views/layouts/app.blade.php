@@ -139,6 +139,7 @@ $('.card').mouseleave(function(){
             $('.alert-waring').fadeIn(3000);
         };
     }
+    $('body').css('height',$(window).height())
     </script>
 @show
 </body>

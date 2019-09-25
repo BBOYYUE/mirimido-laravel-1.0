@@ -65,56 +65,14 @@ $('iframe').height($(window).height())
 $('.show-secondview').click(function(){
   if($('.secondview').css('top')!='0px'){
     $('.secondview').animate({top:0},500);
-    $('.show-secondview').text('hide');
+    $('.show-secondview').html('<span class="iconfont icon-xiajiantou"></span>');
   }else{
     //$('.secondview').animate({top:$('.firstview').height()+50},500);
     $('.secondview').animate({top:$(window).height()*.9},500);
-    $('.show-secondview').text('show');
+    $('.show-secondview').html('<span class="iconfont icon-shangjiantou"></span>');
   }
 })
     $('.secondview').animate({top:$(window).height()*.9},500);
-    //$('.secondview').animate({top:$('.firstview').height()+50},500);
-//,function(){$('.secondview').css('top','50rem');});
-
-/*
-  firstViewHeight = $('.firstview').height();
-  secondViewHeight = $(window).height()-$('#myTab').height()-firstViewHeight-$('.home-jumbotron').height();
-  */
- /*
- windowHeight = $(window).height();
- secondViewMaxHeight = windowHeight-$('#myTab').height();
-  var s = skrollr.init({
-    render: function (data) {
-      console.log(data);
-      max = data.maxTop;
-      last = data.lastTop;
-      curTop = data.curTop;
-      lastTop = data.lastTop;
-      maxTop = data.maxTop;
-      count =  last/max;
-      console.log(count);
-      //curTop: 0, lastTop: 1, : 0, direction: "up"
-      if(count>0.6&&data.direction=='down'){
-        hidehome();
-      }
-      else if(curTop==0&&lastTop==1&&maxTop==0&&data.direction=='up'){
-        showHome();
-      }
-    }
-  });
-
-  function hidehome(){
-    $('.firstview').fadeOut()
-    $('iframe').height(secondViewMaxHeight);
-    //$('.firstview').animate({height:'0'},500);
-
-  }
-  function showHome(){
-    $('.firstview').fadeIn()
-    }
-  showHome();
- 
-*/
 </script>
 @endsection
 

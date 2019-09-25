@@ -11,6 +11,15 @@
     @endcomponent
 @endsection
 @section('content')
+<style>
+    .container{
+        position: relative;
+        top: 50%; /*偏移*/
+        transform: translateY(-50%);
+    }
+    .justify-content-center{
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -54,9 +63,10 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="form-check-label" for="remember">
+                                    <label class="form-check-label" for="remember" style="width:100%">
                                         {{ __('Remember Me') }}
                                     </label>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -68,9 +78,10 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <!--a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
-                                    </a>
+                                    </a-->
+                                    <a class=" btn btn-link" href="{{ route('register') }}">rigster</a>
                                 @endif
                             </div>
                         </div>
@@ -80,4 +91,7 @@
         </div>
     </div>
 </div>
+<script>
+
+</script>
 @endsection
