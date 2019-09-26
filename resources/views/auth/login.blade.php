@@ -17,8 +17,6 @@
         top: 50%; /*偏移*/
         transform: translateY(-50%);
     }
-    .justify-content-center{
-    }
 </style>
 <div class="container">
     <div class="row justify-content-center">
