@@ -67,7 +67,13 @@
         @endforeach
         <div class="col-12">
         <hr style="border-top:solid 1px #fff;" >
+        <div class="row">
+            <div class="col-6">
             {{ $data->data['dir']->links() }}
+            </div>
+            <div class="col-6">
+            <button class="nav-link btn btn-success float-right" data-toggle="modal" data-target="#createModal">create</button>
+            </div>
          </div>
         </div>
     </div>
