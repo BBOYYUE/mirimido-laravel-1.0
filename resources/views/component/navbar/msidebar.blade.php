@@ -1,8 +1,9 @@
 <div class="card">
-<div class="card-header showmenu">
+<div class="card-header row">
+  <div class="showmenu col-10">
     章节列表
-      <span class="iconfont icon -tianxie"></span>
-      <span class="iconfont icon-chehuisekuai"></span>
+  </div>
+  <a href="/blog/gethtml"><span class="iconfont icon-chehuisekuai col-1"></span></a>
 </div>
 <div class="nav card-body flex-column menu" style="display:none;">
   {{ $slot }}

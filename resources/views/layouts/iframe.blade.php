@@ -30,6 +30,7 @@
     @show
     @section('content')
     @show
+    <div class="box" style="width: 100%;height:3rem;"></div>
 </body>
     @section('script')
     <script>

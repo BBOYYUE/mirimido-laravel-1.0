@@ -78,7 +78,7 @@
     @show
     @section('content')
     @show
-    </div>
+    <div class="box" style="width: 100%;height:3rem;"></div>
     @section('script')
     <script src="/js/jquery.js"></script>
     <script>

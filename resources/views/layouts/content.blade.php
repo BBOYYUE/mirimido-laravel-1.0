@@ -75,6 +75,7 @@
         </div>
         </div>
     </div>
+    <div class="box" style="width: 100%;height:3rem;"></div>
 </body>
 @section('script')
     <script src="/js/jquery.js"></script>
