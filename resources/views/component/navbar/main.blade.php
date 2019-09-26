@@ -1,4 +1,4 @@
-  <div class="row" style="height:100%">
+  <div class="row" style="height:100%;margin:0;">
   <div class="col-3 text-center">
     <a class="nav-link show-secondview" ><span class="iconfont icon-shangjiantou"></span></a>
   </div>
