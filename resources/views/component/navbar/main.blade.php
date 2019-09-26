@@ -1,8 +1,8 @@
   <div class="row" style="height:100%;margin:0;">
-  <div class="col-3 text-center">
+  <div class="col-3 text-center" style="padding:0;">
     <a class="nav-link show-secondview" ><span class="iconfont icon-shangjiantou"></span></a>
   </div>
-  <ul class="nav nav-tabs justify-content-center col-6 col-offset-1" id="myTab" role="tablist">
+  <ul class="nav nav-tabs justify-content-center col-6 col-offset-1" style="padding:0;" id="myTab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="libary-tab" data-toggle="tab" href="#a" role="tab" aria-controls="libary"
         aria-selected="true">Libary</a>
@@ -12,7 +12,7 @@
         aria-selected="false">Link</a>
     </li>
   </ul>
-  <div class="col-3 text-center">
+  <div class="col-3 text-center" style="padding:0;">
     @if (Route::has('login'))
     @auth
      <a id="navbarDropdown" class="nav-link btn btn-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

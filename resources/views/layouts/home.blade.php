@@ -53,7 +53,9 @@
     .card-footer{
         z-index:2;
     }
- 
+    .secondview .col-3 .col-6{
+        padding:0;
+    }
     </style>
 </head>
 <body>
