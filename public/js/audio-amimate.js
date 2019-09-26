@@ -11,7 +11,7 @@ analyser.getByteTimeDomainData(dataArray);
     $('.music-list').width("80%");
   } else {
     boxwidth = '.3rem';
-    boxheight = $('.home-jumbotron').height();
+    boxheight = $('.home-jumbotron').height()*.5;
     $('.music-list').width("90%");
   }
   

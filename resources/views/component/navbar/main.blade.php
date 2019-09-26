@@ -34,13 +34,15 @@
     @endif
   </div>
   </div>
-  <div class="tab-content" style="padding:0;margin：0;" id="myTabContent">
+<div class="row" style="height:100%">
+  <div class="tab-content col-12"  id="myTabContent">
     <div class="tab-pane fade show active embed-responsive-16by9" id="a" role="tabpanel"
-      aria-labelledby="libary-tab">
-      <iframe src='/blog/gethtml' class="embed-responsive-item" style="border: none;"></iframe>
+      aria-labelledby="libary-tab" style="height:100%">
+      <iframe src='/blog/gethtml' class="embed-responsive-item" style="border: none;></iframe>
     </div>
-    <div class="tab-pane fade embed-responsive-16by9" id="b" role="tabpanel" aria-labelledby="link-tab">
+    <div class="tab-pane fade embed-responsive-16by9" id="b" role="tabpanel" aria-labelledby="link-tab" style="height:100%">
       <iframe src='/link' class="embed-responsive-item" style="border: none;"></iframe>
     </div>
  </div>
+</div>
  

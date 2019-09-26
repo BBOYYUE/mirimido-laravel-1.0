@@ -61,7 +61,7 @@
 <script src="/js/audio-amimate.js"></script>
 <script type="text/javascript">
 $('.box').height($(window).height()*.3);
-$('iframe').height($(window).height())
+$('.secondview').height($(window).height())
 $('.show-secondview').click(function(){
   if($('.secondview').css('top')!='0px'){
     $('.secondview').animate({top:0},500);
