@@ -85,7 +85,7 @@
   })
     if($(window).width()>767){
         $('.msidebar').css('display','none');
-        $('#box').css('height',$(window).height()*.95);
+        $('#box').css('height',$(window).height()*.94);
     }else{
         $('.sidebar').css('display','none');
         $('#box').css('height',$(window).height());
