@@ -53,19 +53,43 @@
 @endsection
 
 @section('sidebar')
-    @component('component/navbar/sidebar',['method'=>'show','data'=>$data])
+    @component('component/navbar/sidebar',['method'=>'file','data'=>$data])
         @foreach ($data->data['file'] as $item)
-            <li class="list-group-item list-group-item-action"><a href="/showMd/gethtml?path={{$item->url}}" target="iframe">{{$item->name}}</a></li>
+            <li class="list-group-item list-group-item-action">
+                <a href="/showMd/gethtml?path={{$item->url}}" target="iframe">{{$item->name}}</a>
+                <input style="display: none" name="name" class="form-control" style="width:80%;">
+                <span class="iconfont icon-tianxie float-right" onclick="setUpdateName(this)"></span>
+                <span class="iconfont icon-xiayibu float-right" onclick="updateFile(this,{{$item->id}})" style="display: none;"></span>
+            </li>
         @endforeach
     @endcomponent
 @endsection
 @section('script')
 @parent
 <script>
- function createfile(){
-        var form = document.querySelector("#createfile");
-        var formData = new FormData(form);
-        getPost(formData,'createfile/gethtml','default');
-    }
+function setUpdateName(obj){
+    $(obj).siblings('input').val($(obj).siblings('a').text());
+    $(obj).siblings('a').css('display','none');
+    $(obj).css('display','none');
+    $(obj).siblings('span').css({'display':'inline','top':'.3rem','position':'relative'});
+    $(obj).siblings('input').css({'display':'inline','width':'80%'});
+}
+function updateFile(obj,id){
+    $(obj).siblings('input').css('display','none');
+    $(obj).css('display','none');
+    $(obj).siblings('a').text($(obj).siblings('input').val());
+    $(obj).siblings('span').css('display','inline');
+    $(obj).siblings('a').css('display','inline');
+    var formData = new FormData();
+    formData.append('name',$(obj).siblings('input').val());
+    formData.append('id',id);
+    formData.append('_token',"{{ csrf_token() }}")
+    getPost(formData,'updatefilename/gethtml','default');
+}
+function createfile(){
+    var form = document.querySelector("#createfile");
+    var formData = new FormData(form);
+    getPost(formData,'createfile/gethtml','default');
+}
 </script>
 @endsection

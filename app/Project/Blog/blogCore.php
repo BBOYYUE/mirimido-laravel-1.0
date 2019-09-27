@@ -40,12 +40,14 @@ class blogCore{
     }
     function getDirFile($request,$format){
         $fileid = $this->dirfile->where('dirid',$request->input('dirid'))->select('fileid')->get();
-        $format->data = ['file'=>$this->file->whereIn('id',$fileid)->get(),'dir'=>$request->input('dir'),'dirid'=>$request->input('dirid')];
+        $dirname = $this->dir->where('id',$request->input('dirid'))->select('name')->first()->name;
+        $format->data = ['file'=>$this->file->whereIn('id',$fileid)->get(),'dir'=>$request->input('dir'),'dirid'=>$request->input('dirid'),'dirname'=>$dirname];
         $format->code = 1;
     }
     function getDirHtml($request,$format){
         $fileid = $this->dirfile->where('dirid',$request->input('dirid'))->select('htmlid')->get();
-        $format->data = ['html'=>$this->file->whereIn('id',$fileid)->get(),'dir'=>$request->input('dir'),'dirid'=>$request->input('dirid')];
+        $dirname = $this->dir->where('id',$request->input('dirid'))->select('name')->first()->name;
+        $format->data = ['html'=>$this->file->whereIn('id',$fileid)->get(),'dir'=>$request->input('dir'),'dirid'=>$request->input('dirid'),'dirname'=>$dirname];
         $format->code = 1;
     }
     function createDir($request,$format){
@@ -136,6 +138,21 @@ class blogCore{
             $format->data = ['message'=>$e->getMessage()];            
         }
     }    
+    function updateFileName($request,$format){
+        try{
+            $updateFiles = DB::table('files')->where('id',$request->input('id'))->update(['name'=>$request->input('name')]);
+            $updateHtmls = DB::table('files')->where('id',$this->dirfile->where('fileid',$request->input('id'))->select('htmlid')->first()->htmlid)->update(['name'=>$request->input('name')]);
+            if($updateFiles&&$updateHtmls){
+                $format->cod = 1;
+                $format->data =['message'=>'保存成功!'];
+            }else{
+                throw new \Exception('保存失败');
+            }
+        }catch(\Exception $e){
+            $format->code = 4;
+            $format->data = ['message'=>$e->getMessage()];            
+        }
+    }
     function updateDir($request,$format){
         try{
             $dirs = DB::table('dirs')->where('id',$request->input('id'))->update(['name'=>$request->input('title'),'summary'=>$request->input('summary')]);

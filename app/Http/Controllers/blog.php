@@ -45,8 +45,14 @@ class blog extends Controller
        $blog->updateFile($request,$format);
        return $format->getHtml();
    }
+   function updateFileName($type,Request $request,blogCore $blog,format $format){
+       $blog->updateFileName($request,$format);
+       return $format->getHtml();
+   }
    function updateDir($type,Request $request,blogCore $blog,format $format){
        $blog->updateDir($request,$format);
        return $format->getHtml();
    }
 }
+//{"code":4,"data":{"message":"\u4fdd\u5b58\u5931\u8d25"}}
+//{"code":1,"data":{"message":"\u4fdd\u5b58\u6210\u529f"}}

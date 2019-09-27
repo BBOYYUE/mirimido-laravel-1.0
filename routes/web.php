@@ -34,6 +34,7 @@ Route::post('/userfile/createfile/{method}', 'blog@createFile')->name('userfilec
 Route::post('/userhtml/createfile/{method}', 'blog@createFile')->name('userfilecreate')->middleware('auth');
 Route::post('/userhtml/updatefile/{method}', 'blog@updateFile')->name('userfileupdate');
 Route::post('/userfile/updatefile/{method}', 'blog@updateFile')->name('userfileupdate');
+Route::post('/userfile/updatefilename/{method}', 'blog@updateFileName')->name('userfileupdatename')->middleware('auth');
 
 Route::get('/showMd/{method}', 'blog@showMd')->name('showmd');
 Route::get('/showHtml/{method}', 'blog@showHtml')->name('showmd');

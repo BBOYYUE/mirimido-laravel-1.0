@@ -68,10 +68,12 @@ $('.secondview').height($(window).height())
 $('.show-secondview').click(function(){
   if($('.secondview').css('top')!='0px'){
     $('.secondview').animate({top:0},500);
+    $('.firstview').hide();
     $('.show-secondview').html('<span class="iconfont icon-xiajiantou"></span>');
   }else{
     //$('.secondview').animate({top:$('.firstview').height()+50},500);
     $('.secondview').animate({top:$(window).height()*.9},500);
+    $('.firstview').show();
     $('.show-secondview').html('<span class="iconfont icon-shangjiantou"></span>');
   }
 })

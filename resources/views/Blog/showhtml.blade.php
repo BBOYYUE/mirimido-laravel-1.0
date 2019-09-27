@@ -52,7 +52,9 @@
 @section('sidebar')
     @component('component/navbar/sidebar',['method'=>'show','data'=>$data])
         @foreach ($data->data['html'] as $item)
-        <li class="list-group-item list-group-item-action"><a href="/storage/{{ltrim($item->url,'/public/x')}}" target="iframe">{{$item->name}}</a></li>
+        <li class="list-group-item list-group-item-action">
+            <a href="/storage/{{ltrim($item->url,'/public/x')}}" target="iframe">{{$item->name}}</a> 
+        </li>
         @endforeach
     @endcomponent
 @endsection
