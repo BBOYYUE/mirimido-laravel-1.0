@@ -22,6 +22,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('font/iconfont.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tabstyle.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
     #header{
@@ -132,4 +133,5 @@ $('.card').mouseleave(function(){
     </script>
 @show
 </body>
+<script src="/js/sky.js"></script>
 </html>

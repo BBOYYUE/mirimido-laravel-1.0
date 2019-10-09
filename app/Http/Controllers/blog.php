@@ -53,6 +53,10 @@ class blog extends Controller
        $blog->updateDir($request,$format);
        return $format->getHtml();
    }
+   function showMe($type,Request $request,blogCore $blog,format $format){
+       $blog->getUserDir($request,$format);
+       return view('Blog/showme')->with('data',$format->getHtml());
+   }
 }
 //{"code":4,"data":{"message":"\u4fdd\u5b58\u5931\u8d25"}}
 //{"code":1,"data":{"message":"\u4fdd\u5b58\u6210\u529f"}}
