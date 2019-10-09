@@ -19,7 +19,7 @@
                 style="width:1.5rem;height:1.5rem;" />
         </a>
         <div class="dropdown-menu dropdown-menu-right menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/userdir/html">my Home</a>
+            <a class="dropdown-item" href="/userdir/html">my Book</a>
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
