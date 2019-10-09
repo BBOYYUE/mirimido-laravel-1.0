@@ -83,12 +83,12 @@ $('.box').height($(window).height()*.3);
 $('.show-secondview').click(function(){
   if($('.secondview').css('top')!='0px'){
     $('.secondview').animate({top:0},500);
-    $('.mainview').animate({top:50},500);
+    $('.mainview').animate({top:45},500);
     $('.firstview').hide();
     $('.show-secondview').html('<span class="iconfont icon-xiajiantou"></span>');
   }else{
     //$('.secondview').animate({top:$('.firstview').height()+50},500);
-    $('.secondview').animate({top:$(window).height()*.9},500);
+    $('.secondview').animate({top:$(window).height()*.95},500);
     $('.mainview').animate({top:$(window).height()},500);
     $('.firstview').show();
     $('.show-secondview').html('<span class="iconfont icon-shangjiantou"></span>');
