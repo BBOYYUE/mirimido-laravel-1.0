@@ -58,7 +58,7 @@ getData(url);
 source.connect(analyser);
 
 function makebox() {
-   html = "<div style='width:" + boxwidth + ";background:#fff;display:inline-block;margin:1px;position:relative;bottom:0;top:-5rem;'></div>";
+   html = "<div style='width:" + boxwidth + ";background:#fff;display:inline-block;margin:1px;position:relative;bottom:0;'></div>";
   for (i = 0; i < 32; i++) {
     $('.animate').prepend(html);
   }

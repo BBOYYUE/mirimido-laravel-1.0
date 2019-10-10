@@ -80,7 +80,7 @@ $('.menu').children('a').click(function(){
     console.log(1)
   })
 $(".menu a").tab();
-$('.box').height($(window).height()*.3);
+$('.box').height($(window).height()*.2);
 $('.show-secondview').click(function(){
   if($('.secondview').css('bottom')!='0px'){
     $('.secondview').animate({bottom:0},200);
