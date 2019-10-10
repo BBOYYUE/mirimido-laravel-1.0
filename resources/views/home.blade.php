@@ -10,22 +10,33 @@
 @component('component/navbar/header-left')
 @endcomponent
 @endsection
+@section('modal')
+<div class="modal" id="help" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img src="/images/help.jpg" width="100%"/>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
 @section('content')
-<div class="container-fluid showview">
+<div class="container-fluid showview" style="overflow-x:auto;height:100%">
 
 <div class="firstview">
     <div class="jumbotron jumbotron-fluid home-jumbotron" style="background:#fff;margin:1rem 0 0 0;">
       <div class="container text-center">
         <h1 class="display-3">欢迎</h1>
-        <h3>来到 Cmfac.com</h3>
+        <h3>来到 萌向星空</h3>
         <hr class="my-4">
-        <p>
-          此网站是用来学习的,目前它以两种方式储存知识,Link用来保存其他网站的知识,通过一个链接指向网站地址.Libary用来保存自己的笔记,不过使用你得先学会.MD语言.本站的所有内容都是开源的.所有人都可以对所有内容进行编辑.啊
-          写了一半的权限管理然后放弃了.因为别的地方已经实现了，没必要在做一次.</p>
+        <p>此网站是关于学习的,它被设计用来记笔记和查询资料:link 通常用来保存你在其他网站的很零碎的知识;libary 可以很方便的进行知识的汇总;本站现在所有的内容的是公开的,如果你很喜欢网站的设计风格,而你的内容又必须保密的话,你可以联系开发者添加功能; </p>
+        <br>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#help">点击支持开发者</button>
       </div>
     </div>
 </div>
-<div class="thirdview" style="width:100%;">
+<div class="thirdview" style="width:100%;display:block">
   <div class="animate text-center">
     <span style="width:0;height:100%;display:inline-block"></span>
   </div>
@@ -57,18 +68,19 @@
   }
   </style>
 </div>
-<div class="fourthview card">
+<div class="fourthview card" style="position: relative;top:90px;">
     <div class="card-header">
       更新日志:
     </div>
     <div class="card-body">
-      时间 | 操作人 | 更新内容 
-      2019-10-10 | root | 重新设计了主页;新增了 my book; 新增了一首中文歌 ; 
+      更新日期 | 更新内容 <br>
+      2019-10-10 | 重新设计了主页;新增了 my book; 新增了一首中文歌 ; 
     </div>
     <div class="card-footer">
         开发者的个人邮箱:bboyxiaoyue@outlook.com 来信请注明你的身份和来意;
     </div>
 </div>
+ <div class="box" style="width:100%;"></div> 
 </div>
 
 <div class="secondview" style="background:#fff;position:fixed;width:100%;z-index:11;">
@@ -82,7 +94,6 @@
 <div class="backgroundview" style="position: fixed;top:0;z-index:-1;">
     <div class='particle-network-animation'></div>
   </div>
- <div class="box" style="width:100%;"></div> 
 <script src="/js/jquery.js"></script>
 <script src="/js/skrollr.js"></script>
 <script src="/js/tab.js"></script>
@@ -94,7 +105,7 @@ $('.menu').children('a').click(function(){
     console.log(1)
   })
 $(".menu a").tab();
-$('.box').height($(window).height()*.2);
+$('.box').height(150);
 $('.show-secondview').click(function(){
   if($('.secondview').css('bottom')!='0px'){
     $('.secondview').animate({bottom:0},200);
