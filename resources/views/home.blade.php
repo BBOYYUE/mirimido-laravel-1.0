@@ -50,7 +50,8 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index:-999;
+    top:45px;
+    display: none;
   }
   </style>
 </div>
@@ -81,20 +82,17 @@ $('.menu').children('a').click(function(){
 $(".menu a").tab();
 $('.box').height($(window).height()*.3);
 $('.show-secondview').click(function(){
-  if($('.secondview').css('top')!='0px'){
-    $('.secondview').animate({top:0},500);
-    $('.mainview').animate({top:45},500);
-    $('.firstview').hide();
-    $('.show-secondview').html('<span class="iconfont icon-xiajiantou"></span>');
-  }else{
-    //$('.secondview').animate({top:$('.firstview').height()+50},500);
-    $('.secondview').animate({top:$(window).height()*.95},500);
-    $('.mainview').animate({top:$(window).height()},500);
-    $('.firstview').show();
+  if($('.secondview').css('bottom')!='0px'){
+    $('.secondview').animate({bottom:0},200);
+    $('.mainview').hide();    
     $('.show-secondview').html('<span class="iconfont icon-shangjiantou"></span>');
+  }else{
+    $('.secondview').animate({bottom:$(window).height()-45},200);
+    $('.mainview').show();    
+    $('.show-secondview').html('<span class="iconfont icon-xiajiantou"></span>');
   }
 })
-    $('.secondview').animate({top:$(window).height()*.9},500);
+    $('.secondview').animate({bottom:0},500);
 </script>
 @endsection
 

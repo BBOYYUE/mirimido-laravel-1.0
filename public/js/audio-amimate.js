@@ -52,7 +52,7 @@ analyser.getByteTimeDomainData(dataArray);
   };
   request.send()
 }
-url = 'http://cmfac/music.mp3';
+url = 'http://cmfac.com/music/music_1.mp3';
 makebox();
 getData(url);
 source.connect(analyser);
