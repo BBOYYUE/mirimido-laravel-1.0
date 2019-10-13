@@ -1,6 +1,7 @@
 @extends('layouts/iframe')
 @section('head')
     <link rel="stylesheet" href="{{ asset('/editormd/css/editormd.css') }}" />
+    <!--link rel="stylesheet" href="{{ asset('/css/katex.min.css') }}" /-->
 @endsection
 @section('content')
        <div class="container-fluid" style="padding: 0">
@@ -21,6 +22,7 @@
 @section('script')
     <script src="/js/jquery.js"></script>
     <script src=" {{ asset('editormd/editormd.js') }} "></script>
+    <!--script src=" {{ asset('editormd/katex.js') }} "></script-->
 @parent
 <script type="text/javascript">
     $(function() {
