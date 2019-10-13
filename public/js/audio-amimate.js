@@ -7,11 +7,11 @@ var dataArray = new Uint8Array(bufferLength);
 analyser.getByteTimeDomainData(dataArray);
  if ($(window).width() > 728) {
     boxwidth = "1rem";
-    boxheight = $('.home-jumbotron').height();
+    boxheight = "2rem";
     $('.music-list').width("80%");
   } else {
     boxwidth = '.3rem';
-    boxheight = $('.home-jumbotron').height()*.5;
+    boxheight = "2rem";
     $('.music-list').width("90%");
   }
   
@@ -29,7 +29,6 @@ analyser.getByteTimeDomainData(dataArray);
   }  
   request.onloadend = function () {
     
-    $('.animate').height(boxheight);
     var audioData = request.response;
     //$('.animate').css('margin','2rem');
     audioCtx.decodeAudioData(audioData, function (buffer) {
