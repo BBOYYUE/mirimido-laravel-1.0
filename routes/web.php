@@ -21,7 +21,12 @@ Route::get('/home', function () {
 Route::get('index','index@index');
 
 Auth::routes();
-
+Route::get('weixin',function(){
+	echo $_GET['echostr'];
+});
+Route::post('weixin',function(){
+	echo $_GET['echostr'];
+});
 Route::get('/blog/{method}', 'blog@index')->name('blog');
 Route::get('/userdir/{method}', 'blog@showUserDir')->name('userdir')->middleware('auth');
 Route::get('/userfile/{method}', 'blog@showUserFile')->name('userfile');
